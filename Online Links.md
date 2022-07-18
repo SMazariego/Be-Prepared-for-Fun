@@ -4,7 +4,7 @@ https://guarded-stream-10933.herokuapp.com/
 Github Address:
 https://github.com/CharissaHollister/Be-Prepared-for-Fun
 
-Wireframe Link:
+Design Draft Link:
 https://docs.google.com/spreadsheets/d/1eKCv1BnMA4HFRRK0vAsLGdRk28cNGcuTqpB3Ids5KXQ/edit?usp=sharing
 
 Presentation Link:
