@@ -1,3 +1,7 @@
+//use "Post" for "Vacay" and "PackList" model
+
+
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 // create our Post model
@@ -16,12 +20,6 @@ class Post extends Model {
           "post_url",
           "title",
           "created_at",
-          [
-            sequelize.literal(
-              "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
-            ),
-            "vote_count",
-          ],
         ],
         include: [
           {

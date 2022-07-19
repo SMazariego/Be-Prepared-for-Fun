@@ -1,3 +1,5 @@
+//will use for confirmation IF we have time to add that feature later
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 

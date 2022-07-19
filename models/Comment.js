@@ -1,3 +1,5 @@
+//use "Comments" for agenda item and packing list item models like this one
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
