@@ -5,7 +5,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 // create our Post model
-class Post extends Model {
+class PackingList extends Model {
   static upvote(body, models) {
     return models.Vote.create({
       user_id: body.user_id,
@@ -15,12 +15,7 @@ class Post extends Model {
         where: {
           id: body.post_id,
         },
-        attributes: [
-          "id",
-          "post_url",
-          "title",
-          "created_at",
-        ],
+        attributes: ["id", "post_url", "title", "created_at"],
         include: [
           {
             model: models.Comment,
@@ -43,7 +38,7 @@ class Post extends Model {
 }
 
 // create fields/columns for Post model
-Post.init(
+PackingList.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -74,8 +69,8 @@ Post.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "post",
+    modelName: "packingList",
   }
 );
 
-module.exports = Post;
+module.exports = PackingList;

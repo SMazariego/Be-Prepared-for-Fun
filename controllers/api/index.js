@@ -10,6 +10,6 @@ router.use("/users", userRoutes);
 router.use("/vacay", vacayRoutes);
 router.use("/agenda", agendaRoutes);
 router.use("/packing", packingListRoutes);
-// router.use("/vacay", packingItemRoutes);
+router.use("/packing/item", packingItemRoutes);
 
 module.exports = router;
