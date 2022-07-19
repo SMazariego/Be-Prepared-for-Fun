@@ -11,5 +11,6 @@ router.use("/vacay", vacayRoutes);
 router.use("/agenda", agendaRoutes);
 router.use("/packing", packingListRoutes);
 router.use("/packing/item", packingItemRoutes);
+//? do we need to put packing item there if it will be displayed under packing list???
 
 module.exports = router;
