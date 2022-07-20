@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
-const Agenda = require("agenda"); //?belongs here or another js?
+//const Agenda = require("agenda"); //?belongs here or another js?
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -33,7 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(require("./controllers/"));
+app.use(require("./controllers"));
 
 //! change to force:false for launch
 sequelize.sync({ force: false }).then(() => {
