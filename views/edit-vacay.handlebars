@@ -1,3 +1,4 @@
+{{!-- might combine with single vacay  --}}
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
@@ -16,14 +17,15 @@
 
 <article class="agenda-form">
       <div>
-      <a href="/agenda/{{agenda.id}}">{{vacay.agenda.length}} {{format_plural "agenda item" vacay.agenda.length}}</a>
+{{vacay.title}} Vacation Agenda
+      {{!-- ^need to fix  --}}
     </div>
 
 {{> agenda-item-info agendaItems }}
 
 
   <div>
-    <button type="submit" class="update-agenda-btn">Update agenda</button>
+    <button type="submit" class="add-agenda-btn">Add event</button>
 
   </div>
 </article>

@@ -1,6 +1,6 @@
 <article class="vacay">
   <div class="title">
-    <a>{{title}}</a>
+    <a href="vacay/{{id}}">{{title}}</a>
     {{!-- <span>({{format_url post_url}})</span> --}}
   </div>
   <div class="meta">
@@ -10,7 +10,7 @@
     {{format_date created_at}}
     |
     {{! update to info we want displayed for each vacation  }}
-    <a href="/agenda/{{id}}">
+    <a href="vacay/{{id}}">
       Agenda</a>
       {{!-- ^ need to fix  --}}
   </div>
