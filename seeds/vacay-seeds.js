@@ -1,15 +1,13 @@
-const { Post } = require("../models");
+const { Vacay } = require("../models");
 
-const postdata = [
+const vacaydata = [
   {
-    title: "James Webb Space Telescope - First Jupiter Images",
-    post_url:
-      "https://gizmodo.com/webb-telescope-jupiter-images-nasa-1849182469",
-    user_id: 10,
+    title: "Test Vacation 1",
+    user_id: 1,
   },
   
 ];
 
-const seedPosts = () => Post.bulkCreate(postdata);
+const seedVacays = () => Vacay.bulkCreate(vacaydata);
 
-module.exports = seedPosts;
+module.exports = seedVacays;

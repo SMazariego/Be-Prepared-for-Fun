@@ -13,13 +13,14 @@ AgendaItem.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    comment_text: {
+    agenda_text: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1],
       },
     },
+    //todo add rest of agenda attributes
     user_id: {
       type: DataTypes.INTEGER,
       references: {
