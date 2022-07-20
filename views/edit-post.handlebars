@@ -1,35 +1,33 @@
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
-    Edit Post
+    Edit Vacation
   </h2>
-  <form class="edit-post-form">
+  <form class="edit-vacay-form">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
+      <input name="vacay-title" type="text" value="{{vacay.title}}" />
       <span>({{format_url post.post_url}})</span>
     </div>
     <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+      <a href="/vacay/{{vacay.id}}">{{vacay.agenda.length}} {{format_plural "agenda item" vacay.agenda.length}}</a>
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="submit">Save vacay</button>
+    <button type="button" class="delete-vacay-btn">Delete vacay</button>
   </form>
 </article>
 
-<form class="comment-form">
+<form class="agenda-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea name="agenda-body"></textarea>
   </div>
 
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit">add agenda item</button>
   </div>
 </form>
 
-{{> comments post.comments}}
+{{> agenda-item-info agendaItems }}
 
-<script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
+<script src="/javascript/edit-vacay.js"></script>
+<script src="/javascript/delete-vacay.js"></script>
+<script src="/javascript/agenda.js"></script>

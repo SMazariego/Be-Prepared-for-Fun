@@ -1,16 +1,15 @@
-<article class="post">
+<article class="vacay">
   <div class="title">
-    <a href="{{post_url}}" target="_blank">{{title}}</a>
+    <a>{{title}}</a>
     <span>({{format_url post_url}})</span>
   </div>
   <div class="meta">
-    {{vote_count}}
-    {{format_plural "point" vote_count}}
     by
     {{user.username}}
     on
     {{format_date created_at}}
     |
+    {{!-- update to info we want displayed for each vacation  --}}
     <a href="/post/{{id}}">{{comments.length}}
       {{format_plural "comment" comments.length}}</a>
   </div>

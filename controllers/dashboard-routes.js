@@ -70,7 +70,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
   })
     .then((dbVacayData) => {
       if (dbVacayData) {
-        const post = dbVacayData.get({ plain: true });
+        const vacay = dbVacayData.get({ plain: true });
 
         res.render("edit-vacay", {
           vacay,
