@@ -1,3 +1,5 @@
+//*working version
+
 const Sequelize = require("sequelize");
 
 require("dotenv").config();

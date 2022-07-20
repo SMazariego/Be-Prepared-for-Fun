@@ -1,21 +1,19 @@
-{{> post-info post}}
+{{> vacay-info vacay}}
 
 {{#if loggedIn}}
-<form class="comment-form">
+<form class="vacay-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea name="vacay-body"></textarea>
   </div>
 
   <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+    <button type="submit">add vacation</button>
   </div>
 </form>
 {{/if}}
 
-{{> comments post.comments}}
+{{> agenda vacay.agendas}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
 {{/if}}

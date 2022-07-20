@@ -1,32 +1,27 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Post, User, Comment, Vote } = require("../models");
+const { Vacay, User, AgendaItem } = require("../models");
 const withAuth = require("../utils/auth");
 
 // get all posts for dashboard
 router.get("/", withAuth, (req, res) => {
   console.log(req.session);
   console.log("======================");
-  Post.findAll({
+  Vacay.findAll({
     where: {
       user_id: req.session.user_id,
     },
     attributes: [
+      //todo add what attributes we want
       "id",
-      "post_url",
       "title",
       "created_at",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
-        ),
-        "vote_count",
-      ],
     ],
     include: [
       {
-        model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        model: AgendaItem,
+        //todo add what attributes we want
+        attributes: ["id", "agenda_text", "vacay_id", "user_id", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
@@ -38,9 +33,10 @@ router.get("/", withAuth, (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("dashboard", { posts, loggedIn: true });
+    .then((dbVacayData) => {
+      const vacays = dbVacayData.map((vacay) => vacay.get({ plain: true }));
+      //?how to do so that dashboard has multiple sections?
+      res.render("dashboard", { vacays, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
@@ -49,23 +45,18 @@ router.get("/", withAuth, (req, res) => {
 });
 
 router.get("/edit/:id", withAuth, (req, res) => {
-  Post.findByPk(req.params.id, {
+  Vacay.findByPk(req.params.id, {
     attributes: [
+      //todo add what attributes we want
       "id",
-      "post_url",
       "title",
       "created_at",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
-        ),
-        "vote_count",
-      ],
     ],
     include: [
       {
-        model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        model: AgendaItem,
+        //todo add what attributes we want
+        attributes: ["id", "agenda_text", "vacay_id", "user_id", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
@@ -77,12 +68,12 @@ router.get("/edit/:id", withAuth, (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      if (dbPostData) {
-        const post = dbPostData.get({ plain: true });
+    .then((dbVacayData) => {
+      if (dbVacayData) {
+        const vacay = dbVacayData.get({ plain: true });
 
-        res.render("edit-post", {
-          post,
+        res.render("edit-vacay", {
+          vacay,
           loggedIn: true,
         });
       } else {

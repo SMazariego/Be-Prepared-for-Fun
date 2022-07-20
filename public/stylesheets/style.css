@@ -68,6 +68,10 @@ form label {
   display: block;
 }
 
+.quote-box {
+  color: pink;
+}
+
 .wrapper {
   width: 100%;
   min-height: 100%;

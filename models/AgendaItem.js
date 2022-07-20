@@ -1,9 +1,11 @@
+//use "Comments" for agenda item and packing list item models like this one
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Comment extends Model {}
+class AgendaItem extends Model {}
 
-Comment.init(
+AgendaItem.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,13 +13,14 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    comment_text: {
+    agenda_text: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1],
       },
     },
+    //todo add rest of agenda attributes
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -25,10 +28,10 @@ Comment.init(
         key: "id",
       },
     },
-    post_id: {
+    vacay_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "post",
+        model: "vacay",
         key: "id",
       },
     },
@@ -37,8 +40,8 @@ Comment.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "comment",
+    modelName: "agendaItem",
   }
 );
 
-module.exports = Comment;
+module.exports = AgendaItem;
