@@ -1,14 +1,14 @@
-async function newFormHandler(event) {
+async function newVacayFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value;
-  const post_url = document.querySelector('input[name="post-url"]').value;
+  const title = document.querySelector('input[name="vacay-title"]').value;
+//todo get other consts needed
 
-  const response = await fetch(`/api/posts`, {
+  const response = await fetch(`/api/vacay`, {
     method: "POST",
     body: JSON.stringify({
       title,
-      post_url,
+    //todo add other const values here
     }),
     headers: {
       "Content-Type": "application/json",
@@ -23,5 +23,5 @@ async function newFormHandler(event) {
 }
 
 document
-  .querySelector(".new-post-form")
-  .addEventListener("submit", newFormHandler);
+  .querySelector(".new-vacay-form")
+  .addEventListener("submit", newVacayFormHandler);

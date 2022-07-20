@@ -1,19 +1,20 @@
-async function commentFormHandler(event) {
+//todo figure out how to make work for calendar style
+async function agendaFormHandler(event) {
   event.preventDefault();
 
-  const comment_text = document
-    .querySelector('textarea[name="comment-body"]')
+  const agenda_text = document
+    .querySelector('textarea[name="agenda-body"]')
     .value.trim();
-  const post_id = window.location.toString().split("/")[
+  const vacay_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
 
-  if (comment_text) {
-    const response = await fetch("/api/comments", {
+  if (agenda_text) {
+    const response = await fetch("/api/agenda", {
       method: "POST",
       body: JSON.stringify({
-        post_id,
-        comment_text,
+        vacay_id,
+        agenda_text,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -29,5 +30,5 @@ async function commentFormHandler(event) {
 }
 
 document
-  .querySelector(".comment-form")
-  .addEventListener("submit", commentFormHandler);
+  .querySelector(".agenda-form")
+  .addEventListener("submit", agendaFormHandler);

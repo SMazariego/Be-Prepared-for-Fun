@@ -1,10 +1,10 @@
-async function deleteFormHandler(event) {
+async function deleteVacayFormHandler(event) {
   event.preventDefault();
 
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  const response = await fetch(`/api/posts/${id}`, {
+  const response = await fetch(`/api/vacacy/${id}`, {
     method: "DELETE",
   });
 
@@ -16,5 +16,5 @@ async function deleteFormHandler(event) {
 }
 
 document
-  .querySelector(".delete-post-btn")
-  .addEventListener("click", deleteFormHandler);
+  .querySelector(".delete-vacay-btn")
+  .addEventListener("click", deleteVacayFormHandler);

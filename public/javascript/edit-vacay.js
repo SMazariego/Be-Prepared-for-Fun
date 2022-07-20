@@ -1,11 +1,12 @@
-async function editFormHandler(event) {
+async function editVacayFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value.trim();
+  //todo add other consts here and to body section in response
+  const title = document.querySelector('input[name="vacay-title"]').value.trim();
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  const response = await fetch(`/api/posts/${id}`, {
+  const response = await fetch(`/api/vacay/${id}`, {
     method: "PUT",
     body: JSON.stringify({
       title,
@@ -23,5 +24,5 @@ async function editFormHandler(event) {
 }
 
 document
-  .querySelector(".edit-post-form")
-  .addEventListener("submit", editFormHandler);
+  .querySelector(".edit-vacay-form")
+  .addEventListener("submit", editVacayFormHandler);
