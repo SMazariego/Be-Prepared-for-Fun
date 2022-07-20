@@ -6,7 +6,7 @@
   <form class="edit-vacay-form">
     <div>
       <input name="vacay-title" type="text" value="{{vacay.title}}" />
-      <span>({{format_url post.post_url}})</span>
+      {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
     <div>
       <a href="/vacay/{{vacay.id}}">{{vacay.agenda.length}} {{format_plural "agenda item" vacay.agenda.length}}</a>

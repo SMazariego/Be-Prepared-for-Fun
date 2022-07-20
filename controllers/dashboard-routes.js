@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Vacay, User, Agenda, PackingItem } = require("../models");
+const { Vacay, User, AgendaItem } = require("../models");
 const withAuth = require("../utils/auth");
 
 // get all posts for dashboard

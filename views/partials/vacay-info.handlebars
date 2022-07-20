@@ -1,7 +1,7 @@
 <article class="vacay">
   <div class="title">
     <a>{{title}}</a>
-    <span>({{format_url post_url}})</span>
+    {{!-- <span>({{format_url post_url}})</span> --}}
   </div>
   <div class="meta">
     by
@@ -10,7 +10,7 @@
     {{format_date created_at}}
     |
     {{!-- update to info we want displayed for each vacation  --}}
-    <a href="/post/{{id}}">{{comments.length}}
-      {{format_plural "comment" comments.length}}</a>
+    <a href="/post/{{id}}">{{agenda.length}}
+      {{format_plural "agenda" agenda.length}}</a>
   </div>
 </article>
