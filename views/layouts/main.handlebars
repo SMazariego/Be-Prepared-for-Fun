@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Be Prepared for Fun</title>
+    <title>Be Prepared for Adventure</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
@@ -11,16 +11,12 @@
     <div class="wrapper">
       <header>
         <h1>
-          <a href="/"> Be Prepared for Fun </a>
+          <a href="/dashboard"> Be Prepared for Adventure </a>
         </h1>
         <nav>
           {{#if loggedIn}}
-            {{! fix spacing }}
-            <a class="btn-no-style" href="/">homepage</a>
             <a class="btn-no-style" href="/dashboard">dashboard</a>
             <button id="logout" class="btn-no-style">logout</button>
-          {{else}}
-            <a href="/login">login</a>
           {{/if}}
         </nav>
       </header>
