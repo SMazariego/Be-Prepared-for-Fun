@@ -9,8 +9,9 @@
     on
     {{format_date created_at}}
     |
-    {{!-- update to info we want displayed for each vacation  --}}
-    <a href="/post/{{id}}">{{agenda.length}}
-      {{format_plural "agenda" agenda.length}}</a>
+    {{! update to info we want displayed for each vacation  }}
+    <a href="/agenda/{{id}}">
+      Agenda</a>
+      {{!-- ^ need to fix  --}}
   </div>
 </article>

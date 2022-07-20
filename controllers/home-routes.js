@@ -1,8 +1,5 @@
 const router = require("express").Router();
 
-
-//?do we reference the quotes api here for it to populate on the homepage?
-// get all posts for homepage
 router.get("/", (req, res) => {
   console.log("======================");
       res.render("homepage", {
