@@ -1,6 +1,6 @@
-function addAgendaHandler() {
+function test() {
   document.getElementById("quoteArea").textContent =
     "Quote will populate from external api here";
 }
 
-document.querySelector(".add-agenda-btn").addEventListener("click", addAgendaHandler);
+document.querySelector(".update-agenda-btn").addEventListener("click", test);
