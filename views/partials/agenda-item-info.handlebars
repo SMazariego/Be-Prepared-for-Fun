@@ -1,6 +1,6 @@
-<div class="agenda">
+{{!-- <div class="agenda"> --}}
   {{!-- {{#each this}} --}}
-  <section class="agenda">
+  {{!-- <section class="agenda">
     <div class="meta">
       {{user.username}}
     </div>
@@ -8,6 +8,20 @@
       {{agenda_text}}
     </div>
     
-  </section>
+  </section> --}}
   {{!-- {{/each}} --}}
-</div>
+{{!-- </div> --}}
+
+<form class="agenda-edit-form">
+    <div>
+      <input name="agenda-title" type="text"
+       value="{{agenda_text}}" 
+       />
+      <span>({{user.username}})</span>
+    </div>
+      {{!-- ^add in dates and other info  --}}
+        <button id="update-agenda-btn" type="submit">Edit event</button>
+        <button type="button" class="delete-agenda-btn">Delete event</button>
+  </form>
+</article>
+

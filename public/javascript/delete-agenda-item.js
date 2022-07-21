@@ -2,7 +2,7 @@
 async function deleteAgendaFormHandler(event) {
   event.preventDefault();
   console.log("delete started");
-  const id = e.target.getAttribute("id");
+  const id = event.target.id;
   console.log(id);
   const response = await fetch(`/api/agendas/${id}`, {
     method: "DELETE",
