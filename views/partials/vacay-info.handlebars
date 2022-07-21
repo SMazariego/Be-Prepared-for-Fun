@@ -1,6 +1,6 @@
 <article class="vacay">
   <div class="title">
-    <a href="/api/vacay/{{id}}">{{title}}</a>
+    <a href="/dashboard/edit/{{id}}" >{{title}}</a>
     {{!-- <span>({{format_url post_url}})</span> --}}
   </div>
   <div class="meta">
@@ -10,8 +10,10 @@
     {{format_date created_at}}
     |
     {{! update to info we want displayed for each vacation  }}
-    <a href="/api/agenda">
+    <a href="/agenda">
       Agenda</a>
     {{! ^ need to fix  }}
   </div>
 </article>
+
+<script src="/javascript/add-vacay.js"></script>

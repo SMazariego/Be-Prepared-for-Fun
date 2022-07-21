@@ -3,7 +3,7 @@ async function agendaFormHandler(event) {
   event.preventDefault();
 
   const agenda_text = document
-    .querySelector('textarea[name="agenda-body"]')
+    .querySelector('textarea[name="agend_text"]')
     .value.trim();
   const vacay_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1

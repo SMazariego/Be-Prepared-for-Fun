@@ -1,15 +1,15 @@
 {{!-- might combine with single vacay  --}}
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
+  {{!-- <a href="/dashboard"> &larr; Back to dashboard</a> --}}
   <h2>
-    Edit Vacation
+    {{vacay.title}}
   </h2>
   <form class="edit-vacay-form">
     <div>
       <input name="vacay-title" type="text" value="{{vacay.title}}" />
       {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
-
+      {{!-- ^add in dates and other info  --}}
     <button type="submit">Save vacay</button>
     <button type="button" class="delete-vacay-btn">Delete vacay</button>
   </form>
@@ -17,17 +17,26 @@
 
 <article class="agenda-form">
       <div>
-{{vacay.title}} Vacation Agenda
-      {{!-- ^need to fix  --}}
+        Agenda
+              <a href="/agenda/{{vacay.id}}" class="agenda-link"> calendar view</a>
+
+      {{!-- ^add in dates and other info list format --}}
     </div>
 
 {{> agenda-item-info agendaItems }}
 
 
-  <div>
-    <button type="submit" class="add-agenda-btn">Add event</button>
+      <form class="edit-vacay-form">
+    <div>
+      <input name="vacay-title" type="text" value="{{vacay.title}}" />
+      {{!-- <span>({{format_url post.post_url}})</span> --}}
+    </div>
+      {{!-- ^add in dates and other info  --}}
+    <button type="submit">Save vacay</button>
 
-  </div>
+
+    <button type="submit" class="add-agenda-btn">Add event</button>
+  </form>
 </article>
 
 <script src="/javascript/edit-vacay.js"></script>
