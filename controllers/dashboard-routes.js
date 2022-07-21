@@ -69,9 +69,10 @@ router.get("/api/vacay/:id", withAuth, (req, res) => {
     ],
   })
     .then((dbVacayData) => {
+      console.log(dbVacayData);
       if (dbVacayData) {
         const vacay = dbVacayData.get({ plain: true });
-        //todo might need to change if edit and show are combined
+
         res.render("single-vacay", {
           vacay,
           loggedIn: true,
@@ -84,5 +85,6 @@ router.get("/api/vacay/:id", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+//todo ^ might need to change if edit and show are combined
 
 module.exports = router;
