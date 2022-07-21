@@ -25,20 +25,16 @@
 
 {{> agenda-item-info agendaItems }}
 
-
-      <form class="edit-vacay-form">
+<form class="agenda-form">
     <div>
-      <input name="vacay-title" type="text" value="{{vacay.title}}" />
+      <input name="agenda-title" type="text" value="{{agenda.agenda_text}}" />
       {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
       {{!-- ^add in dates and other info  --}}
-    <button type="submit">Save vacay</button>
-
-
-    <button type="submit" class="add-agenda-btn">Add event</button>
+    <button type="submit">Save event</button>
   </form>
 </article>
 
 <script src="/javascript/edit-vacay.js"></script>
 <script src="/javascript/delete-vacay.js"></script>
-<script src="/javascript/agenda.js"></script>
+<script src="/javascript/add-agenda-item.js"></script>
