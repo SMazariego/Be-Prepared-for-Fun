@@ -6,7 +6,7 @@ async function editVacayFormHandler(event) {
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  const response = await fetch(`/api/vacay/${id}`, {
+  const response = await fetch(`/api/vacays/${id}`, {
     method: "PUT",
     body: JSON.stringify({
       title,
@@ -17,7 +17,7 @@ async function editVacayFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/dashboard/");
+    document.location.reload();
   } else {
     alert(response.statusText);
   }

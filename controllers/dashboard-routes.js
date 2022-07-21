@@ -69,6 +69,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
     ],
   })
     .then((dbVacayData) => {
+      // console.log(dbVacayData);
       if (dbVacayData) {
         const vacay = dbVacayData.get({ plain: true });
 
@@ -84,5 +85,6 @@ router.get("/edit/:id", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+//todo ^ might need to change if edit and show are combined
 
 module.exports = router;
