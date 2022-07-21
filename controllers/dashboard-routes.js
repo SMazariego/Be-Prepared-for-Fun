@@ -44,7 +44,7 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
-router.get("/edit/:id", withAuth, (req, res) => {
+router.get("/api/vacay/:id", withAuth, (req, res) => {
   Vacay.findByPk(req.params.id, {
     attributes: [
       //todo add what attributes we want
@@ -71,8 +71,8 @@ router.get("/edit/:id", withAuth, (req, res) => {
     .then((dbVacayData) => {
       if (dbVacayData) {
         const vacay = dbVacayData.get({ plain: true });
-
-        res.render("edit-vacay", {
+        //todo might need to change if edit and show are combined
+        res.render("single-vacay", {
           vacay,
           loggedIn: true,
         });
