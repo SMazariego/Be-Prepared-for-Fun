@@ -1,6 +1,5 @@
 function test() {
-  document.getElementById("quoteArea").textContent =
-    "Quote will populate from external api here";
+  console.log("event add area");
 }
 
-document.querySelector(".update-agenda-btn").addEventListener("click", test);
+document.querySelector(".add-agenda-btn").addEventListener("click", test);

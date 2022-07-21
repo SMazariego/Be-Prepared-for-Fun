@@ -1,35 +1,60 @@
 {{!-- might combine with single vacay  --}}
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
+  {{!-- <a href="/dashboard"> &larr; Back to dashboard</a> --}}
   <h2>
-    Edit Vacation
+    {{vacay.title}}
   </h2>
   <form class="edit-vacay-form">
     <div>
       <input name="vacay-title" type="text" value="{{vacay.title}}" />
       {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
-
+      {{!-- ^add in dates and other info  --}}
     <button type="submit">Save vacay</button>
     <button type="button" class="delete-vacay-btn">Delete vacay</button>
   </form>
 </article>
 
-<article class="agenda-form">
-      <div>
-{{vacay.title}} Vacation Agenda
-      {{!-- ^need to fix  --}}
+<article class="agenda-list">
+
+{{#if vacay.agendaItems.length}}
+<section>
+  <h2>Agenda</h2>
+{{!-- <a href="/agenda/{{vacay.id}}" class="agenda-link"> calendar view</a> --}}
+{{!-- ^add in dates and other info list format --}}
+  <ul>
+    {{#each vacay.agendaItems as | agendaItem |}}
+    <li>
+      {{> agenda-item-info agendaItem}}
+        {{!-- <button id="update-agenda-btn" type="submit">Edit event</button>
+        <button type="button" class="delete-agenda-btn">Delete event</button> --}}
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{else}}
+<div>No Events Planned</div>
+{{/if}}
+
+
+<form class="agenda-form">
+  <div>Add New Event:</div>
+    <div>
+      <input name="agenda-title" type="text"
+       {{!-- value="{{agenda.agenda_text}}"  --}}
+       />
+      {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
-
-{{> agenda-item-info agendaItems }}
-
-
-  <div>
-    <button type="submit" class="add-agenda-btn">Add event</button>
-
-  </div>
+      {{!-- ^add in dates and other info  --}}
+    <button id="save-event-btn" type="submit">Save event</button>
+  </form>
 </article>
 
 <script src="/javascript/edit-vacay.js"></script>
 <script src="/javascript/delete-vacay.js"></script>
-<script src="/javascript/agenda.js"></script>
+<script src="/javascript/add-agenda-item.js"></script>
+
+{{#if vacay.agendaItems.length}}
+<script src="/javascript/edit-agenda-item.js"></script>
+<script src="/javascript/delete-agenda-item.js"></script>
+{{/if}}

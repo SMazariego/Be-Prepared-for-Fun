@@ -4,7 +4,7 @@ async function newVacayFormHandler(event) {
   const title = document.querySelector('input[name="vacay-title"]').value;
 //todo get other consts needed
 
-  const response = await fetch(`/api/vacay`, {
+  const response = await fetch(`/api/vacays`, {
     method: "POST",
     body: JSON.stringify({
       title,
