@@ -1,3 +1,4 @@
+{{!-- might combine with single vacay  --}}
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
@@ -8,25 +9,26 @@
       <input name="vacay-title" type="text" value="{{vacay.title}}" />
       {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
-    <div>
-      <a href="/vacay/{{vacay.id}}">{{vacay.agenda.length}} {{format_plural "agenda item" vacay.agenda.length}}</a>
-    </div>
+
     <button type="submit">Save vacay</button>
     <button type="button" class="delete-vacay-btn">Delete vacay</button>
   </form>
 </article>
 
-<form class="agenda-form">
-  <div>
-    <textarea name="agenda-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add agenda item</button>
-  </div>
-</form>
+<article class="agenda-form">
+      <div>
+{{vacay.title}} Vacation Agenda
+      {{!-- ^need to fix  --}}
+    </div>
 
 {{> agenda-item-info agendaItems }}
+
+
+  <div>
+    <button type="submit" class="add-agenda-btn">Add event</button>
+
+  </div>
+</article>
 
 <script src="/javascript/edit-vacay.js"></script>
 <script src="/javascript/delete-vacay.js"></script>

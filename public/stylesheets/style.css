@@ -69,7 +69,9 @@ form label {
 }
 
 .quote-box {
-  color: pink;
+  background-color: pink;
+  color: red;
+  padding: 30px;
 }
 
 .wrapper {
