@@ -15,26 +15,46 @@
   </form>
 </article>
 
-<article class="agenda-form">
-      <div>
-        Agenda
-              <a href="/agenda/{{vacay.id}}" class="agenda-link"> calendar view</a>
+<article class="agenda-list">
 
-      {{!-- ^add in dates and other info list format --}}
-    </div>
+{{#if vacay.agendaItems.length}}
+<section>
+  <h2>Agenda</h2>
+{{!-- <a href="/agenda/{{vacay.id}}" class="agenda-link"> calendar view</a> --}}
+{{!-- ^add in dates and other info list format --}}
+  <ul>
+    {{#each vacay.agendaItems}}
+    <li>
+      {{> agenda-item-info vacay.agendaItem}}
+        <button id="update-agenda-btn" type="submit">Edit event</button>
+        <button type="button" class="delete-agenda-btn">Delete event</button>
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{else}}
+<div>No Events Planned</div>
+{{/if}}
 
-{{> agenda-item-info agendaItems }}
 
 <form class="agenda-form">
+  <div>Add New Event:</div>
     <div>
-      <input name="agenda-title" type="text" value="{{agenda.agenda_text}}" />
+      <input name="agenda-title" type="text"
+       {{!-- value="{{agenda.agenda_text}}"  --}}
+       />
       {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
       {{!-- ^add in dates and other info  --}}
-    <button type="submit">Save event</button>
+    <button id="save-event-btn" type="submit">Save event</button>
   </form>
 </article>
 
 <script src="/javascript/edit-vacay.js"></script>
 <script src="/javascript/delete-vacay.js"></script>
 <script src="/javascript/add-agenda-item.js"></script>
+
+{{#if agendas.length}}
+<script src="/javascript/edit-agenda-item.js"></script>
+<script src="/javascript/delete-agenda-item.js"></script>
+{{/if}}

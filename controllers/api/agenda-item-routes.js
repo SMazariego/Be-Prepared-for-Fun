@@ -2,22 +2,31 @@ const router = require("express").Router();
 const { AgendaItem } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// router.get("/", (req, res) => {
+//   AgendaItem.findAll()
+//     .then((dbAgendaItemData) => {
+//       if (dbAgendaItemData) {
+//         console.log(dbAgendaItemData);
+//         const agenda = dbAgendaItemData.get({ plain: true });
+
+//         res.render("agenda", {
+//           agenda,
+//           loggedIn: true,
+//         });
+//       } else {
+//         res.status(404).end();
+//       }
+//     })
+//     .catch((err) => {
+//       res.status(500).json(err);
+//     });
+// });
+
 router.get("/", (req, res) => {
   AgendaItem.findAll()
-    .then((dbAgendaItemData) => {
-      if (dbAgendaItemData) {
-        console.log(dbAgendaItemData);
-        const agenda = dbAgendaItemData.get({ plain: true });
-
-        res.render("agenda", {
-          agenda,
-          loggedIn: true,
-        });
-      } else {
-        res.status(404).end();
-      }
-    })
+    .then((dbAgendaItemData) => res.json(dbAgendaItemData))
     .catch((err) => {
+      console.log(err);
       res.status(500).json(err);
     });
 });
