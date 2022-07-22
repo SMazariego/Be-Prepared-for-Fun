@@ -15,7 +15,7 @@
         </h1>
         <nav>
           {{#if loggedIn}}
-          {{!-- add additional nav links  --}}
+            {{! add additional nav links  }}
             <a class="btn-no-style" href="/dashboard">dashboard</a>
             <button id="logout" class="btn-no-style">logout</button>
           {{/if}}
@@ -25,13 +25,20 @@
         {{{body}}}
       </main>
       <footer>
-        Thanks for visiting! 🥳
+        <aside class="quote-box">
+          <div id="quoteArea">
+            {{! populate quote }}
+          </div>
+          <div>by:
+            <span style="font-style:italic;" id="quoteAuthor"></span></div>
+        </aside>
       </footer>
     </div>
 
     {{#if loggedIn}}
       <script src="/javascript/logout.js"></script>
     {{/if}}
+    <script src="/javascript/quotes.js"></script>
   </body>
 
 </html>
