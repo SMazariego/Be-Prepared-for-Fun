@@ -15,6 +15,19 @@
   </form>
 </article>
 
+<form class="agenda-form">
+  <div>Add New Event:</div>
+    <div>
+      <input name="agenda-title" type="text"
+       {{!-- value="{{agenda.agenda_text}}"  --}}
+       />
+      {{!-- <span>({{format_url post.post_url}})</span> --}}
+    </div>
+      {{!-- ^add in dates and other info  --}}
+    <button id="save-event-btn" type="submit">Save event</button>
+  </form>
+</article>
+
 <article class="agenda-list">
 
 {{#if vacay.agendaItems.length}}
@@ -37,18 +50,7 @@
 {{/if}}
 
 
-<form class="agenda-form">
-  <div>Add New Event:</div>
-    <div>
-      <input name="agenda-title" type="text"
-       {{!-- value="{{agenda.agenda_text}}"  --}}
-       />
-      {{!-- <span>({{format_url post.post_url}})</span> --}}
-    </div>
-      {{!-- ^add in dates and other info  --}}
-    <button id="save-event-btn" type="submit">Save event</button>
-  </form>
-</article>
+
 
 <script src="/javascript/edit-vacay.js"></script>
 <script src="/javascript/delete-vacay.js"></script>
