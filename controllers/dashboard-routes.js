@@ -12,21 +12,15 @@ router.get("/", withAuth, (req, res) => {
       user_id: req.session.user_id,
     },
     attributes: [
-      //todo add what attributes we want
       "id",
       "title",
+      "user_id",
+      "start_date",
+      "end_date",
+      "destination",
       "created_at",
     ],
     include: [
-      {
-        model: AgendaItem,
-        //todo add what attributes we want
-        attributes: ["id", "agenda_text", "vacay_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
       {
         model: User,
         attributes: ["username"],
@@ -47,24 +41,28 @@ router.get("/", withAuth, (req, res) => {
 router.get("/edit/:id", withAuth, (req, res) => {
   Vacay.findByPk(req.params.id, {
     attributes: [
-      //todo add what attributes we want
       "id",
       "title",
+      "user_id",
+      "start_date",
+      "end_date",
+      "destination",
       "created_at",
     ],
     include: [
       {
         model: AgendaItem,
         //todo add what attributes we want
-        attributes: ["id", "agenda_text", "vacay_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      {
-        model: User,
-        attributes: ["username"],
+        attributes: [
+          "id",
+          "agenda_title",
+          "vacay_id",
+          "agenda_date",
+          "agenda_start",
+          "agenda_end",
+          "location",
+          "agenda_notes",
+        ],
       },
     ],
   })
