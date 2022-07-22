@@ -7,9 +7,12 @@
   <form class="edit-vacay-form">
     <div>
       <input name="vacay-title" type="text" value="{{vacay.title}}" />
-      {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
-      {{!-- ^add in dates and other info  --}}
+<div>
+        Destination: 
+        <input name="vacay-destination" type="text" value="{{vacay.destination}}" />
+        </div>
+        <div>        <input name="vacay-start" type="date" value="{{vacay.start_date}}" /> to         <input name="vacay-end" type="date" value="{{vacay.end_date}}" /> </div>
     <button type="submit">Save vacay</button>
     <button type="button" class="delete-vacay-btn">Delete vacay</button>
   </form>
@@ -19,9 +22,23 @@
   <div>Add New Event:</div>
     <div>
       <input name="agenda-title" type="text"
-       {{!-- value="{{agenda.agenda_text}}"  --}}
+       value="{{agenda_title}}" 
        />
-      {{!-- <span>({{format_url post.post_url}})</span> --}}
+        <input name="agenda-date" type="date"
+       value="{{agenda_date}}"/> 
+       : 
+       <input name="agenda-start" type="time"
+       value="{{agenda_start}}"/> 
+       to 
+       <input name="agenda-end" type="time"
+       value="{{agenda_end}}"/>
+      <input name="agenda-location" type="text"
+       value="{{location}}" 
+       />
+      <input name="agenda_notes" type="text"
+       value="{{agenda_notes}}" 
+       />
+
     </div>
       {{!-- ^add in dates and other info  --}}
     <button id="save-event-btn" type="submit">Save event</button>
@@ -35,15 +52,15 @@
   <h2>Agenda</h2>
 {{!-- <a href="/agenda/{{vacay.id}}" class="agenda-link"> calendar view</a> --}}
 {{!-- ^add in dates and other info list format --}}
-  <ul>
+  <div>
     {{#each vacay.agendaItems as | agendaItem |}}
-    <li>
+    <div>
       {{> agenda-item-info agendaItem}}
-        {{!-- <button id="update-agenda-btn" type="submit">Edit event</button>
-        <button type="button" class="delete-agenda-btn">Delete event</button> --}}
-    </li>
+        {{!-- <button id={{agendaItem.id}} class="update-agenda-btn" type="submit">Edit</button>
+        <button type="button" id={{agendaItem.id}} class="delete-agenda-btn">Delete</button> --}}
+    </div>
     {{/each}}
-  </ul>
+  </div>
 </section>
 {{else}}
 <div>No Events Planned</div>
