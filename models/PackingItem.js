@@ -23,7 +23,7 @@ PackingItem.init(
     //todo figure out boolean or checkbox of some sort
     packed: {
       type: DataTypes.BOOLEAN,
-      defaultValue: 0,
+      defaultValue: false,
     },
     vacay_id: {
       type: DataTypes.INTEGER,

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Vacay, User, AgendaItem } = require("../models");
 const withAuth = require("../utils/auth");
-
+// const animatePlane = require("../public/javascript/animatePlane");
 // get all posts for dashboard
 router.get("/", withAuth, (req, res) => {
   console.log(req.session);
@@ -31,6 +31,7 @@ router.get("/", withAuth, (req, res) => {
       const vacays = dbVacayData.map((vacay) => vacay.get({ plain: true }));
       //?how to do so that dashboard has multiple sections?
       res.render("dashboard", { vacays, loggedIn: true });
+      // animatePlane;
     })
     .catch((err) => {
       console.log(err);
