@@ -1,7 +1,6 @@
 //todo figure out how to make work for calendar style
 async function deleteAgendaFormHandler(event) {
   event.preventDefault();
-  console.log("delete started");
   const id = event.target.id;
 
   //todo figure out how to target id of agenda-item selected

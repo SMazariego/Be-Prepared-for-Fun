@@ -20,6 +20,7 @@ PackingItem.init(
         len: [1],
       },
     },
+    //todo figure out boolean or checkbox of some sort
     packed: {
       type: DataTypes.BOOLEAN,
       defaultValue: 0,
