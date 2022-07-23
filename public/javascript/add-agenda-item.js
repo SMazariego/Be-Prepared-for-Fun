@@ -21,6 +21,11 @@ async function agendaFormHandler(event) {
   const agenda_notes = document.querySelector(
     'input[name="agenda-notes"]'
   ).value;
+  const title = agenda_title;
+  const start = agenda_date;
+  const startTime = agenda_start;
+  const endTime = agenda_end;
+  const description = agenda_notes;
   if (agenda_title) {
     const response = await fetch(`/api/agendas`, {
       method: "POST",
@@ -42,6 +47,27 @@ async function agendaFormHandler(event) {
       document.location.reload();
     } else {
       alert(response.statusText);
+    }
+    const createEvent = await fetch(`/calendar`, {
+      method: "POST",
+      body: JSON.stringify({
+        title,
+        vacay_id,
+        start,
+        startTime,
+        endTime,
+        location,
+        description,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (createEvent.ok) {
+      document.location.reload();
+    } else {
+      alert(createEvent.statusText);
     }
   }
 }
