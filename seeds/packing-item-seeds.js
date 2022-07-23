@@ -1,15 +1,58 @@
-const { Comment } = require("../models");
+const { PackingItem } = require("../models");
 
-const commentdata = [
+const packingdata = [
   {
-    comment_text:
-      "Eleven Earths could fit across Jupiter’s equator. If Earth were the size of a grape, Jupiter would be the size of a basketball.",
-    user_id: 6,
-    post_id: 1,
+    packing_text: "sunscreen",
+    packed: true,
+    vacay_id: 1,
   },
-
+  {
+    packing_text: "swim suit",
+    packed: false,
+    vacay_id: 1,
+  },
+  {
+    packing_text: "tooth brush",
+    packed: false,
+    vacay_id: 1,
+  },
+  {
+    packing_text: "tickets",
+    packed: true,
+    vacay_id: 1,
+  },
+  {
+    packing_text: "passport",
+    packed: false,
+    vacay_id: 1,
+  },
+  {
+    packing_text: "pajamas",
+    packed: false,
+    vacay_id: 1,
+  },
+  {
+    packing_text: "beach bag",
+    packed: false,
+    vacay_id: 1,
+  },
+  {
+    packing_text: "dress",
+    packed: true,
+    vacay_id: 1,
+  },
+  {
+    packing_text: "sandals",
+    packed: false,
+    vacay_id: 1,
+  },
+  {
+    packing_text: "undies",
+    packed: false,
+    vacay_id: 1,
+  },
 ];
 
-const seedComments = () => Comment.bulkCreate(commentdata);
+const seedPackingItems = () => PackingItem.bulkCreate(packingdata);
 
-module.exports = seedComments;
+module.exports = seedPackingItems;

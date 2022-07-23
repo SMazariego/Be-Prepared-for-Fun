@@ -1,17 +1,33 @@
 const router = require("express").Router();
-const sequelize = require("../../config/connection");
-const { Vacay, User, AgendaItem} = require("../../models");
+const { Vacay, User, AgendaItem } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // get all users
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   console.log("======================");
   Vacay.findAll({
-    attributes: ["id", "title", "created_at"],
+    attributes: [
+      "id",
+      "title",
+      "user_id",
+      "start_date",
+      "end_date",
+      "destination",
+      "created_at",
+    ],
     include: [
       {
         model: AgendaItem,
-        attributes: ["id", "agenda_id", "vacay_id", "user_id", "created_at"],
+        attributes: [
+          "id",
+          "agenda_title",
+          "vacay_id",
+          "agenda_date",
+          "agenda_start",
+          "agenda_end",
+          "location",
+          "agenda_notes",
+        ],
         include: {
           model: User,
           attributes: ["username"],
@@ -35,11 +51,28 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "title", "created_at"],
+    attributes: [
+      "id",
+      "title",
+      "user_id",
+      "start_date",
+      "end_date",
+      "destination",
+      "created_at",
+    ],
     include: [
       {
         model: AgendaItem,
-        attributes: ["id", "agenda_text", "vacay_id", "user_id", "created_at"],
+        attributes: [
+          "id",
+          "agenda_title",
+          "vacay_id",
+          "agenda_date",
+          "agenda_start",
+          "agenda_end",
+          "location",
+          "agenda_notes",
+        ],
         include: {
           model: User,
           attributes: ["username"],
@@ -68,6 +101,9 @@ router.post("/", withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Vacay.create({
     title: req.body.title,
+    start_date: req.body.start_date,
+    end_date: req.body.end_date,
+    destination: req.body.destination,
     user_id: req.session.user_id,
   })
     .then((dbVacayData) => res.json(dbVacayData))
@@ -81,6 +117,9 @@ router.put("/:id", withAuth, (req, res) => {
   Vacay.update(
     {
       title: req.body.title,
+      start_date: req.body.start_date,
+      end_date: req.body.end_date,
+      destination: req.body.destination,
     },
     {
       where: {

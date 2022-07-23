@@ -1,7 +1,7 @@
 // import all models
 const Vacay = require("./Vacay");
 const User = require("./User");
-// const PackingItem = require("./PackingItem");
+const PackingItem = require("./PackingItem");
 const AgendaItem = require("./AgendaItem");
 
 // create associations
@@ -14,23 +14,22 @@ Vacay.belongsTo(User, {
   onDelete: "SET NULL",
 });
 
-AgendaItem.belongsTo(User, {
-  foreignKey: "user_id",
-  onDelete: "SET NULL",
-});
-
-AgendaItem.belongsTo(Vacay, {
+Vacay.hasMany(PackingItem, {
   foreignKey: "vacay_id",
-  onDelete: "SET NULL",
 });
 
-User.hasMany(AgendaItem, {
-  foreignKey: "user_id",
-  onDelete: "SET NULL",
+PackingItem.belongsTo(Vacay, {
+  foreignKey: "vacay_id",
+  onDelete: "CASCADE",
 });
 
 Vacay.hasMany(AgendaItem, {
   foreignKey: "vacay_id",
 });
 
-module.exports = { User, Vacay, AgendaItem };
+AgendaItem.belongsTo(Vacay, {
+  foreignKey: "vacay_id",
+  onDelete: "CASCADE",
+});
+
+module.exports = { User, Vacay, AgendaItem, PackingItem };

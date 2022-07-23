@@ -13,24 +13,22 @@ PackingItem.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    comment_text: {
+    packing_text: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1],
       },
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
+    //todo figure out boolean or checkbox of some sort
+    packed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
-    post_id: {
+    vacay_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "post",
+        model: "vacay",
         key: "id",
       },
     },
