@@ -35,21 +35,18 @@ Event.init(
     description: {
       type: DataTypes.STRING,
     },
-    extendedProps: {
-      // figure out if allowed
-      location: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      vacay_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "vacay",
-          key: "id",
-        },
+    // figure out if allowed
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    vacay_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "vacay",
+        key: "id",
       },
     },
-    // },
   },
   {
     sequelize,

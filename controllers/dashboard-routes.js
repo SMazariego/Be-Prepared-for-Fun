@@ -53,7 +53,6 @@ router.get("/edit/:id", withAuth, (req, res) => {
     include: [
       {
         model: AgendaItem,
-        //todo add what attributes we want
         attributes: [
           "id",
           "agenda_title",
@@ -85,5 +84,49 @@ router.get("/edit/:id", withAuth, (req, res) => {
     });
 });
 //todo ^ might need to change if edit and show are combined
+
+router.get("/calendar/:id", withAuth, (req, res) => {
+  Vacay.findByPk(req.params.id, {
+    attributes: [
+      "id",
+      "title",
+      "user_id",
+      "start_date",
+      "end_date",
+      "destination",
+      "created_at",
+    ],
+    include: [
+      {
+        model: Event,
+        attributes: [
+          "title",
+          // "vacay_id",
+          "start",
+          "startTime",
+          "endTime",
+          // "location",
+          "description",
+        ],
+      },
+    ],
+  })
+    .then((dbVacayData) => {
+      // console.log(dbVacayData);
+      if (dbVacayData) {
+        const vacay = dbVacayData.get({ plain: true });
+
+        res.render("calendar", {
+          vacay,
+          loggedIn: true,
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;

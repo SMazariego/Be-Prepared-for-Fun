@@ -1,44 +1,6 @@
 const router = require("express").Router();
-const { Event } = require("../models");
+const { Event } = require("../../models");;
 const withAuth = require("../../utils/auth");
-
-
-router.get("/", withAuth, (req, res) => {
-  console.log(req.session);
-  console.log("======================");
-  Event.findAll({
-    where: {
-      vacay_id: req.session.vacay_id,
-    },
-    attributes: [
-      "id",
-      "title",
-      "user_id",
-      "start_date",
-      "end_date",
-      "destination",
-      "created_at",
-    ],
-    include: [
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
-  })
-    .then((dbEventData) => {
-      const vacays = dbEventData.map((vacay) => events.get({ plain: true }));
-      //?how to do so that dashboard has multiple sections?
-      res.render("calendar", { events, loggedIn: true });
-      // animatePlane;
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-
 
 router.get("/", withAuth, (req, res) => {
   Event.findAll()
@@ -75,8 +37,10 @@ router.put("/:id", withAuth, (req, res) => {
       start: req.body.start,
       startTime: req.body.startTime,
       endTime: req.body.endTime,
-      location: req.body.location,
       description: req.body.description,
+      extendedProps: {
+        location: req.body.location,
+      },
     },
     {
       where: {

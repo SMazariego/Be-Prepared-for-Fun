@@ -1,6 +1,6 @@
-<article class="animate__animated animate__rubberBand animate__delay-1s vacay">
+<article class="vacay">
   <div class="title">
-    <a href="/dashboard/edit/{{id}}">{{title}}</a>
+    <a href="/dashboard/calendar/{{id}}">{{title}}</a>
     {{! todo figure out how to reformat displayed date }}
     <span>({{format_date start_date}} to {{format_date end_date}})</span>
   </div>
@@ -10,7 +10,7 @@
     | created by:
     {{user.username}}
 
-    <div># of Events: {{agendaItems.length}}</div>
+    <div># of Events: {{events.length}}</div>
     {{! todo ^ count not working  }}
   </div>
 </article>

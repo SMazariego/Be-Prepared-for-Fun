@@ -43,8 +43,8 @@ async function editEventHandler(event) {
       alert(response.statusText);
     }
 
-    const createEvent = await fetch(`/calendar`, {
-      method: "POST",
+    const createEvent = await fetch(`/api/events/${id}`, {
+      method: "PUT",
       body: JSON.stringify({
         title,
         vacay_id,

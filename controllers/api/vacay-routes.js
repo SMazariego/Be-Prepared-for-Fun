@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Vacay, User, AgendaItem } = require("../../models");
+const { Vacay, User, AgendaItem, Event } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // get all users
@@ -32,6 +32,18 @@ router.get("/", withAuth, (req, res) => {
           model: User,
           attributes: ["username"],
         },
+      },
+      {
+        model: Event,
+        attributes: [
+          "id",
+          "title",
+          "start",
+          "startTime",
+          "endTime",
+          // "location",
+          // "description",
+        ],
       },
       {
         model: User,
@@ -77,6 +89,18 @@ router.get("/:id", (req, res) => {
           model: User,
           attributes: ["username"],
         },
+      },
+      {
+        model: Event,
+        attributes: [
+          "id",
+          "title",
+          "start",
+          "startTime",
+          "endTime",
+          // "location",
+          // "description",
+        ],
       },
       {
         model: User,

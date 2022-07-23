@@ -48,7 +48,7 @@ async function agendaFormHandler(event) {
     } else {
       alert(response.statusText);
     }
-    const createEvent = await fetch(`/calendar`, {
+    const createEvent = await fetch(`/api/events`, {
       method: "POST",
       body: JSON.stringify({
         title,

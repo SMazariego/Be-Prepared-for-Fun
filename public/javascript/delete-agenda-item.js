@@ -14,7 +14,7 @@ async function deleteAgendaFormHandler(event) {
   } else {
     alert(response.statusText);
   }
-    const eventItem = await fetch(`/calendars/${id}`, {
+    const eventItem = await fetch(`/api/events/${id}`, {
       method: "DELETE",
     });
 
