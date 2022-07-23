@@ -1,15 +1,25 @@
 async function editVacayFormHandler(event) {
   event.preventDefault();
 
-  //todo add other consts here and to body section in response
-  const title = document.querySelector('input[name="vacay-title"]').value.trim();
+  const title = document
+    .querySelector('input[name="vacay-title"]')
+    .value.trim();
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  const response = await fetch(`/api/vacay/${id}`, {
+  const start_date = document.querySelector('input[name="vacay-start"]').value;
+  const end_date = document.querySelector('input[name="vacay-end"]').value;
+  const destination = document.querySelector(
+    'input[name="vacay-destination"]'
+  ).value;
+
+  const response = await fetch(`/api/vacays/${id}`, {
     method: "PUT",
     body: JSON.stringify({
       title,
+      start_date,
+      end_date,
+      destination,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -17,7 +27,7 @@ async function editVacayFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/dashboard/");
+    document.location.reload();
   } else {
     alert(response.statusText);
   }

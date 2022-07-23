@@ -1,17 +1,16 @@
-<article class="vacay">
+<article class="animate__animated animate__rubberBand animate__delay-1s vacay">
   <div class="title">
-    <a href="vacay/{{id}}">{{title}}</a>
-    {{!-- <span>({{format_url post_url}})</span> --}}
+    <a href="/dashboard/edit/{{id}}">{{title}}</a>
+    {{! todo figure out how to reformat displayed date }}
+    <span>({{start_date}} to {{end_date}})</span>
   </div>
   <div class="meta">
-    by
+    Destination:
+    {{destination}}
+    | created by:
     {{user.username}}
-    on
-    {{format_date created_at}}
-    |
-    {{! update to info we want displayed for each vacation  }}
-    <a href="vacay/{{id}}">
-      Agenda</a>
-      {{!-- ^ need to fix  --}}
+
+    <div># of Events: {{agendaItems.length}}</div>
+    {{! todo ^ count not working  }}
   </div>
 </article>

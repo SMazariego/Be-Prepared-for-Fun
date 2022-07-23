@@ -1,11 +1,8 @@
-//use "Post" for "Vacay" and "PackList" model
-
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 // create our Post model
 class Vacay extends Model {}
 
-// create fields/columns for Post model
 Vacay.init(
   {
     id: {
@@ -24,6 +21,18 @@ Vacay.init(
         model: "user",
         key: "id",
       },
+    },
+    start_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    end_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    destination: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {

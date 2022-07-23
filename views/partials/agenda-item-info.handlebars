@@ -1,14 +1,20 @@
-<div class="agenda">
-  {{#each this}}
-    <section class="agenda">
-      <div class="meta">
-        {{user.username}}
-        on
-        {{format_date created_at}}
-      </div>
-      <div class="text">
-        {{agenda_text}}
-      </div>
-    </section>
-  {{/each}}
-</div>
+<form
+  class="animate__animated animate__slideInLeft animate__delay-1s agenda-edit-form"
+>
+  <div>
+    <input name="agenda-title" type="text" value="{{agenda_title}}" />
+    <input name="agenda-date" type="date" value="{{agenda_date}}" />
+    :
+    <input name="agenda-start" type="time" value="{{agenda_start}}" />
+    to
+    <input name="agenda-end" type="time" value="{{agenda_end}}" />
+    <label for="agenda-location">Location</label>
+    <input name="agenda-location" type="text" value="{{location}}" />
+    <label for="agenda-notes">notes</label>
+  </div>
+  <input name="agenda-notes" type="text" value="{{agenda_notes}}" />
+  {{! ^afix dates and time format  }}
+  <button id={{id}} class="update-agenda-btn" type="submit">Edit</button>
+  {{! edit button isn't working  }}
+  <button type="button" id={{id}} class="delete-agenda-btn">Delete</button>
+</form>

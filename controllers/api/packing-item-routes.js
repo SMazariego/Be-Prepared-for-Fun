@@ -34,7 +34,9 @@ router.delete("/:id", withAuth, (req, res) => {
   })
     .then((dbPackingItemData) => {
       if (!dbPackingItemData) {
-        res.status(404).json({ message: "No packing list item found with this id!" });
+        res
+          .status(404)
+          .json({ message: "No packing list item found with this id!" });
         return;
       }
       res.json(dbPackingItemData);

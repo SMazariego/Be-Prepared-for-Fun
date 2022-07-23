@@ -1,35 +1,79 @@
 {{!-- might combine with single vacay  --}}
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Vacation
+  {{!-- <a href="/dashboard"> &larr; Back to dashboard</a> --}}
+  <h2 class="animate__animated animate__bounce">
+    {{vacay.title}}
   </h2>
   <form class="edit-vacay-form">
     <div>
       <input name="vacay-title" type="text" value="{{vacay.title}}" />
-      {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
-
+<div>
+        Destination: 
+        <input name="vacay-destination" type="text" value="{{vacay.destination}}" />
+        </div>
+        <div>        <input name="vacay-start" type="date" value="{{vacay.start_date}}" /> to         <input name="vacay-end" type="date" value="{{vacay.end_date}}" /> </div>
     <button type="submit">Save vacay</button>
     <button type="button" class="delete-vacay-btn">Delete vacay</button>
   </form>
 </article>
 
-<article class="agenda-form">
-      <div>
-{{vacay.title}} Vacation Agenda
-      {{!-- ^need to fix  --}}
+<form class="agenda-form">
+  <div>Add New Event:</div>
+    <div>
+      <input name="agenda-title" type="text"
+       value="{{agenda_title}}" 
+       />
+        <input name="agenda-date" type="date"
+       value="{{agenda_date}}"/> 
+       : 
+       <input name="agenda-start" type="time"
+       value="{{agenda_start}}"/> 
+       to 
+       <input name="agenda-end" type="time"
+       value="{{agenda_end}}"/>
+      <input name="agenda-location" type="text"
+       value="{{location}}" 
+       />
+      <input name="agenda_notes" type="text"
+       value="{{agenda_notes}}" 
+       />
+
     </div>
-
-{{> agenda-item-info agendaItems }}
-
-
-  <div>
-    <button type="submit" class="add-agenda-btn">Add event</button>
-
-  </div>
+      {{!-- ^add in dates and other info  --}}
+    <button id="save-event-btn" type="submit">Save event</button>
+  </form>
 </article>
+
+<article class="agenda-list">
+
+{{#if vacay.agendaItems.length}}
+<section>
+  <h2>Agenda</h2>
+{{!-- <a href="/agenda/{{vacay.id}}" class="agenda-link"> calendar view</a> --}}
+{{!-- ^add in dates and other info list format --}}
+  <div>
+    {{#each vacay.agendaItems as | agendaItem |}}
+    <div>
+      {{> agenda-item-info agendaItem}}
+        {{!-- <button id={{agendaItem.id}} class="update-agenda-btn" type="submit">Edit</button>
+        <button type="button" id={{agendaItem.id}} class="delete-agenda-btn">Delete</button> --}}
+    </div>
+    {{/each}}
+  </div>
+</section>
+{{else}}
+<div>No Events Planned</div>
+{{/if}}
+
+
+
 
 <script src="/javascript/edit-vacay.js"></script>
 <script src="/javascript/delete-vacay.js"></script>
-<script src="/javascript/agenda.js"></script>
+<script src="/javascript/add-agenda-item.js"></script>
+
+{{#if vacay.agendaItems.length}}
+<script src="/javascript/edit-agenda-item.js"></script>
+<script src="/javascript/delete-agenda-item.js"></script>
+{{/if}}

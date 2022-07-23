@@ -1,16 +1,16 @@
 //todo figure out how to make work for calendar style
 async function deleteAgendaFormHandler(event) {
   event.preventDefault();
+  const id = event.target.id;
 
-  const id = window.location.toString().split("/")[
-    window.location.toString().split("/").length - 1
-  ];
-  const response = await fetch(`/api/agenda/${id}`, {
+  //todo figure out how to target id of agenda-item selected
+  console.log(id);
+  const response = await fetch(`/api/agendas/${id}`, {
     method: "DELETE",
   });
 
   if (response.ok) {
-    document.location.replace("/agenda/");
+    document.location.reload();
   } else {
     alert(response.statusText);
   }
