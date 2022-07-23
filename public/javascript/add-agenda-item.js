@@ -40,10 +40,8 @@ async function agendaFormHandler(event) {
 
     if (response.ok) {
       document.location.reload();
-      console.log("response ok");
     } else {
       alert(response.statusText);
-      console.log("response not ok");
     }
   }
 }

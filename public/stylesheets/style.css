@@ -8,7 +8,7 @@
 
 .flier > * {
   /* Adjust animation duration to change the element’s speed */
-  animation: fly 50s linear infinite;
+  animation: fly 100s linear infinite;
   pointer-events: none !important;
   top: 0;
   left: 0;
@@ -16,6 +16,60 @@
   position: fixed;
   animation-delay: 1s;
   z-index: 999999;
+}
+
+.car {
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #fefefe;
+  color: #333;
+  border: none;
+}
+
+.car img {
+  position: absolute;
+  height: 50px;
+  margin: 0;
+  line-height: 50px;
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  -moz-animation: scroll-left 2s linear infinite;
+  -webkit-animation: scroll-left 2s linear infinite;
+  animation: scroll-left 20s linear infinite;
+}
+
+@-moz-keyframes scroll-left {
+  0% {
+    -moz-transform: translateX(100%);
+  }
+  100% {
+    -moz-transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes scroll-left {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  100% {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
 }
 
 /* Keyframe values control where the element will begin
