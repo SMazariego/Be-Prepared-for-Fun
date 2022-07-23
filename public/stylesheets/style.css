@@ -8,7 +8,7 @@
 
 .flier > * {
   /* Adjust animation duration to change the element’s speed */
-  animation: fly 50s linear infinite;
+  animation: fly 100s linear infinite;
   pointer-events: none !important;
   top: 0;
   left: 0;
@@ -58,6 +58,86 @@
 
   95% {
     transform: translateX(10vw) translateY(100vh) rotateZ(0deg);
+  }
+}
+
+.car {
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: none;
+  border: none;
+}
+
+.car .box {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  line-height: 50px;
+  transform: translateX(100%);
+  animation: scroll-left 50s linear infinite;
+}
+
+.car img {
+  height: 50px;
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.plane {
+  top: 200px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  background: none;
+  border: none;
+  animation: y-axis 30s infinite linear;
+}
+
+.plane-box {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  line-height: 50px;
+  /* transform: translateX(100%); */
+  animation: x-axis 30s infinite linear;
+  animation-delay: 20s;
+}
+
+.plane img {
+  height: 50px;
+}
+
+@keyframes x-axis {
+  0% {
+    transform: translateX(10%);
+  }
+  50% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes y-axis {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(50%);
   }
 }
 
