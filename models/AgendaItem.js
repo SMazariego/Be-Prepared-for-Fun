@@ -19,7 +19,7 @@ AgendaItem.init(
       },
     },
     agenda_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     agenda_start: {

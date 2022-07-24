@@ -11,9 +11,10 @@
     <label for="agenda-location">Location</label>
     <input name="agenda-location" type="text" value="{{location}}" />
     <label for="agenda-notes">notes</label>
+
+    <input name="agenda-notes" type="text" value="{{agenda_notes}}" />
+    {{! ^afix dates and time format  }}
   </div>
-  <input name="agenda-notes" type="text" value="{{agenda_notes}}" />
-  {{! ^afix dates and time format  }}
   <button id={{id}} class="update-agenda-btn" type="submit">Edit</button>
   {{! edit button isn't working  }}
   <button type="button" id={{id}} class="delete-agenda-btn">Delete</button>

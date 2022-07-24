@@ -33,25 +33,28 @@ router.get("/", withAuth, (req, res) => {
           attributes: ["username"],
         },
       },
-      {
-        model: Event,
-        attributes: [
-          "id",
-          "title",
-          "start",
-          "startTime",
-          "endTime",
-          // "location",
-          // "description",
-        ],
-      },
+      // {
+      //   model: Event,
+      //   attributes: [
+      //     "id",
+      //     "title",
+      //     "start",
+      //     "startTime",
+      //     "endTime",
+      //     // "location",
+      //     // "description",
+      //   ],
+      // },
       {
         model: User,
         attributes: ["username"],
       },
     ],
   })
-    .then((dbVacayData) => res.json(dbVacayData))
+    .then((dbVacayData) => {
+      console.log(dbVacayData);
+      res.json(dbVacayData);
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -90,18 +93,18 @@ router.get("/:id", (req, res) => {
           attributes: ["username"],
         },
       },
-      {
-        model: Event,
-        attributes: [
-          "id",
-          "title",
-          "start",
-          "startTime",
-          "endTime",
-          // "location",
-          // "description",
-        ],
-      },
+      // {
+      //   model: Event,
+      //   attributes: [
+      //     "id",
+      //     "title",
+      //     "start",
+      //     "startTime",
+      //     "endTime",
+      //     // "location",
+      //     // "description",
+      //   ],
+      // },
       {
         model: User,
         attributes: ["username"],
@@ -152,6 +155,7 @@ router.put("/:id", withAuth, (req, res) => {
     }
   )
     .then((dbVacayData) => {
+      console.log(dbVacayData);
       if (!dbVacayData) {
         res.status(404).json({ message: "No Vacation found with this id" });
         return;

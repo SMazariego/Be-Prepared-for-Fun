@@ -1,6 +1,6 @@
 <article class="vacay">
   <div class="title">
-    <a href="/dashboard/calendar/{{id}}">{{title}}</a>
+    <button id={{id}} class="calendar">{{title}}</button>
     {{! todo figure out how to reformat displayed date }}
     <span>({{format_date start_date}} to {{format_date end_date}})</span>
   </div>
@@ -10,7 +10,7 @@
     | created by:
     {{user.username}}
 
-    <div># of Events: {{events.length}}</div>
+    <div># of Events: {{AgendaItem.length}}</div>
     {{! todo ^ count not working  }}
   </div>
 </article>

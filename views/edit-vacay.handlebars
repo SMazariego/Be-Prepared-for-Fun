@@ -21,10 +21,11 @@
 <form class="agenda-form">
   <div>Add New Event:</div>
     <div>
+
       <input name="agenda-title" type="text"
        value="{{agenda_title}}" 
        />
-        <input name="agenda-date" type="date"
+        <input id="2" name="agenda-date" type="date"
        value="{{agenda_date}}"/> 
        : 
        <input name="agenda-start" type="time"
@@ -32,12 +33,11 @@
        to 
        <input name="agenda-end" type="time"
        value="{{agenda_end}}"/>
-      <input name="agenda-location" type="text"
-       value="{{location}}" 
-       />
-      <input name="agenda_notes" type="text"
-       value="{{agenda_notes}}" 
-       />
+    <label for="agenda-location">Location</label>
+    <input name="agenda-location" type="text" value="{{location}}" />
+    <label for="agenda-notes">notes</label>
+
+    <input name="agenda-notes" type="text" value="{{agenda_notes}}" />
 
     </div>
       {{!-- ^add in dates and other info  --}}
