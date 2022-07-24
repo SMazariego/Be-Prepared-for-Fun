@@ -11,23 +11,23 @@ AgendaItem.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    agenda_title: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1],
       },
     },
-    agenda_date: {
+    start: {
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    agenda_start: {
+    startTime: {
       type: DataTypes.TIME,
       allowNull: false,
     },
     //todo maybe change to event length instead and auto calculate time ends
-    agenda_end: {
+    endTime: {
       type: DataTypes.TIME,
       allowNull: false,
     },

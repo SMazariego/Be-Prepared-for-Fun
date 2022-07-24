@@ -13,11 +13,11 @@ router.get("/", withAuth, (req, res) => {
 
 router.post("/", withAuth, (req, res) => {
   AgendaItem.create({
-    agenda_title: req.body.agenda_title,
+    title: req.body.title,
     vacay_id: req.body.vacay_id,
-    agenda_date: req.body.agenda_date,
-    agenda_start: req.body.agenda_start,
-    agenda_end: req.body.agenda_end,
+    start: req.body.start,
+    startTime: req.body.startTime,
+    endTime: req.body.endTime,
     location: req.body.location,
     agenda_notes: req.body.agenda_notes,
   })
@@ -31,10 +31,10 @@ router.post("/", withAuth, (req, res) => {
 router.put("/:id", withAuth, (req, res) => {
   AgendaItem.update(
     {
-      agenda_title: req.body.agenda_title,
-      agenda_date: req.body.agenda_date,
-      agenda_start: req.body.agenda_start,
-      agenda_end: req.body.agenda_end,
+      title: req.body.title,
+      start: req.body.start,
+      startTime: req.body.startTime,
+      endTime: req.body.endTime,
       location: req.body.location,
       agenda_notes: req.body.agenda_notes,
     },

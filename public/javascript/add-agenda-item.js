@@ -3,40 +3,40 @@ async function agendaFormHandler(event) {
   console.log(
     "date before" + document.querySelector('input[name="agenda-date"]').value
   );
-  const agenda_title = document.querySelector(
+  const title = document.querySelector(
     'input[name="agenda-title"]'
   ).value;
   const vacay_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  const agenda_date = document.querySelector(
+  const start = document.querySelector(
     'input[name="agenda-date"]'
   ).value;
-  const agenda_start = document.querySelector(
+  const startTime = document.querySelector(
     'input[name="agenda-start"]'
   ).value;
-  const agenda_end = document.querySelector('input[name="agenda-end"]').value;
+  const endTime = document.querySelector('input[name="agenda-end"]').value;
   const location = document.querySelector(
     'input[name="agenda-location"]'
   ).value;
   const agenda_notes = document.querySelector(
     'input[name="agenda-notes"]'
   ).value;
-  // const title = agenda_title;
-  // const start = agenda_date;
-  // const startTime = agenda_start;
-  // const endTime = agenda_end;
+  // const title = title;
+  // const start = start;
+  // const startTime = startTime;
+  // const endTime = endTime;
   // const description = agenda_notes;
-  console.log("agenda date" + agenda_date);
-  if (agenda_title) {
+  console.log("agenda date" + start);
+  if (title) {
     const response = await fetch(`/api/agendas`, {
       method: "POST",
       body: JSON.stringify({
-        agenda_title,
+        title,
         vacay_id,
-        agenda_date,
-        agenda_start,
-        agenda_end,
+        start,
+        startTime,
+        endTime,
         location,
         agenda_notes,
       }),
