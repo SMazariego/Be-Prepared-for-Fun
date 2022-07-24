@@ -1,4 +1,3 @@
-//todo figure out how to make work for calendar style
 async function agendaFormHandler(event) {
   event.preventDefault();
   console.log(
@@ -51,27 +50,6 @@ async function agendaFormHandler(event) {
     } else {
       alert(response.statusText);
     }
-//     const createEvent = await fetch(`/api/events`, {
-//       method: "POST",
-//       body: JSON.stringify({
-//         title,
-//         vacay_id,
-//         start,
-//         startTime,
-//         endTime,
-//         location,
-//         description,
-//       }),
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
-
-//     if (createEvent.ok) {
-//       document.location.reload();
-//     } else {
-//       alert(createEvent.statusText);
-//     }
   }
 }
 

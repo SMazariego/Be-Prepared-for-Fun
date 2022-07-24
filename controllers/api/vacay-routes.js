@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Vacay, User, AgendaItem, Event } = require("../../models");
+const { Vacay, User, AgendaItem } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // get all users
@@ -33,18 +33,6 @@ router.get("/", withAuth, (req, res) => {
           attributes: ["username"],
         },
       },
-      // {
-      //   model: Event,
-      //   attributes: [
-      //     "id",
-      //     "title",
-      //     "start",
-      //     "startTime",
-      //     "endTime",
-      //     // "location",
-      //     // "description",
-      //   ],
-      // },
       {
         model: User,
         attributes: ["username"],
@@ -93,18 +81,6 @@ router.get("/:id", (req, res) => {
           attributes: ["username"],
         },
       },
-      // {
-      //   model: Event,
-      //   attributes: [
-      //     "id",
-      //     "title",
-      //     "start",
-      //     "startTime",
-      //     "endTime",
-      //     // "location",
-      //     // "description",
-      //   ],
-      // },
       {
         model: User,
         attributes: ["username"],

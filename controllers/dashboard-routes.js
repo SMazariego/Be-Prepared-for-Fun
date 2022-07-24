@@ -98,20 +98,7 @@ router.get("/calendar/:id", withAuth, (req, res) => {
       "destination",
       "created_at",
     ],
-    include: [
-      {
-        model: Event,
-        attributes: [
-          "title",
-          // "vacay_id",
-          "start",
-          "startTime",
-          "endTime",
-          // "location",
-          "description",
-        ],
-      },
-    ],
+  
   })
     .then((dbVacayData) => {
       // console.log(dbVacayData);

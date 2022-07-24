@@ -39,13 +39,6 @@ AgendaItem.init(
     agenda_notes: {
       type: DataTypes.STRING,
     },
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "user",
-    //     key: "id",
-    //   },
-    // },
     vacay_id: {
       type: DataTypes.INTEGER,
       references: {
