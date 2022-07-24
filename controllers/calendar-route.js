@@ -2,8 +2,8 @@ const router = require("express").Router();
 const { AgendaItem } = require("../models");
 const withAuth = require("../utils/auth");
 
-router.get("/", withAuth, (req, res) => {
-  res.render("calendar");
+router.get("/:id", withAuth, (req, res) => {
+  res.render("calendar", { vacay_id: req.params.id });
 });
 
 router.get("/", withAuth, (req, res) => {

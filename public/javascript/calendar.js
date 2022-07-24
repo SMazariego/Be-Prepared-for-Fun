@@ -51,10 +51,24 @@
 //   .querySelector(".calendar")
 //   .addEventListener("click", calendarFormHandler);
 
-document.addEventListener("DOMContentLoaded", function () {
-  var calendarEl = document.getElementById("calendar");
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: "dayGridMonth",
+document.addEventListener("DOMContentLoaded", async function () {
+  const calendarEl = document.getElementById("calendar");
+  const id = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
+  ];
+  // console.log(id);
+
+  const response = await fetch(`/api/vacays/${id}`, {
+    method: "GET",
+    //todo how do I say here that the json returned is the events array to use in calendar render?
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  console.log(response);
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: "timeGridWeek",
+    events: "response.json.agendaItems",
   });
   calendar.render();
 });
