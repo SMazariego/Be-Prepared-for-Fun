@@ -153,6 +153,7 @@ html {
   margin: 0;
   font-family: sans-serif;
   color: #333;
+  background-image: linear-gradient(to bottom right, #DEF5F7, #75AEB5, #2F8CA8);
 }
 
 a {
@@ -213,9 +214,10 @@ form label {
 }
 
 .quote-box {
-  background-color: pink;
+  background-color: #F7D3A4;
   color: red;
   padding: 30px;
+  border-radius: 15px;
 }
 
 .wrapper {
@@ -227,17 +229,91 @@ form label {
   flex-direction: column;
 }
 
+.wrapper a:hover {
+  border-radius: 3px;
+  padding: 10px 10px;
+  background: #EDFAFE;
+  color: #10495A;
+  text-shadow: none;
+  text-decoration: none;
+}
+
 header {
   border-bottom: 1px solid #ccc;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1%;
+  padding: 10px 10px;
+  margin: 7px 0;
 }
 
 header h1 {
-  font-size: 1em;
+  font-size: 1.55vw;
+  margin: 7px 5px;
 }
+
+footer {
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  font-size: 110%;
+}
+
+.hero {
+  border-radius: 15px;
+  background-image: url(../img/vacay-hero1.jpeg);
+    background-size: cover;
+    background-position: 45% 55%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-attachment: scroll;
+}
+
+.hero-cta {
+  width: 35%;
+  text-align: center;
+  margin: 5%;
+  color: #fff;
+  font-size: 20px;
+  line-height: 10;
+}
+
+.hero-cta h2 {
+  font-style: italic;
+  font-size: 40px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-cta h3 {
+  font-style: italic;
+  font-size: 15px;
+}
+
+.vacay-form {
+  margin: 60px;
+  padding: 20px 20px;
+}
+
+.new-vacay-form{
+  border: 3px solid #10495A;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.new-vacay-form input{
+  width: 100%;
+}
+
+.vacay-form h2 {
+  color: #10495A;
+  font-size: 45px;
+  margin: 20px;
+  padding: 20px 20px;
+}
+
 
 main {
   flex: 1;
@@ -250,7 +326,7 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: #10495A;
   font-size: 100%;
   font-weight: bold;
   transition: color 0.1s;
@@ -258,8 +334,9 @@ main {
 }
 
 .btn-no-style:hover {
-  background: none;
-  color: #3486eb;
+  background: #EDFAFE;
+  color: #1A401F;
+  padding: 10px 10px;
 }
 
 .delete-post-btn {
@@ -322,10 +399,3 @@ main {
   margin-bottom: 5%;
 }
 
-footer {
-  border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  padding: 1%;
-  font-size: 110%;
-}
