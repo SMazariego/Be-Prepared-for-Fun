@@ -16,11 +16,6 @@ async function editEventHandler(event) {
   const agenda_notes = document.querySelector(
     'input[name="agenda-notes"]'
   ).value;
-  const title = agenda_title;
-  const start = agenda_date;
-  const startTime = agenda_start;
-  const endTime = agenda_end;
-  const description = agenda_notes;
   if (agenda_title) {
     const response = await fetch(`/api/agendas/${id}`, {
       method: "PUT",
@@ -42,31 +37,8 @@ async function editEventHandler(event) {
     } else {
       alert(response.statusText);
     }
-
-    const createEvent = await fetch(`/api/events/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        title,
-        vacay_id,
-        start,
-        startTime,
-        endTime,
-        location,
-        description,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (createEvent.ok) {
-      document.location.reload();
-    } else {
-      alert(createEvent.statusText);
-    }
   }
 }
-
 document
   .querySelector(".update-agenda-btn")
   .addEventListener("click", editEventHandler);
