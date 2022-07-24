@@ -49,8 +49,9 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
+//for calendar
 router.get("/:id", (req, res) => {
-  Vacay.findOne({
+  Vacay.findByPk({
     where: {
       id: req.params.id,
     },
@@ -88,14 +89,18 @@ router.get("/:id", (req, res) => {
     ],
   })
     .then((dbVacayData) => {
-      if (!dbVacayData) {
-        res.status(404).json({ message: "No Vacation found with this id" });
-        return;
+      if (dbVacayData) {
+        const vacay = dbVacayData.get({ plain: true });
+
+        res.render("calendar", {
+          vacay,
+          loggedIn: true,
+        });
+      } else {
+        res.status(404).end();
       }
-      res.json(dbVacayData);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500).json(err);
     });
 });

@@ -6,13 +6,15 @@ const agendaRoutes = require("./agenda-item-routes");
 // const packingListRoutes = require("./packing-list-routes");
 const packingItemRoutes = require("./packing-item-routes");
 // const eventRoutes = require("./event-routes");
+const calendarRoutes = require("./calendar-route");
 
 router.use("/users", userRoutes);
 router.use("/vacays", vacayRoutes);
 router.use("/agendas", agendaRoutes);
 // router.use("/events", eventRoutes);
 // router.use("/packing", packingListRoutes);
-router.use("/packing/item", packingItemRoutes);
+router.use("/packingItems", packingItemRoutes);
+router.use("/calendars", calendarRoutes);
 
 //? do we need to put packing item there if it will be displayed under packing list???
 

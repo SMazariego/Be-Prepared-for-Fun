@@ -91,7 +91,7 @@
     transform: translateX(-100%);
   }
 }
-
+/* 
 .plane {
   top: 200px;
   height: 100%;
@@ -110,7 +110,7 @@
   margin: 0;
   line-height: 50px;
   /* transform: translateX(100%); */
-  animation: x-axis 30s infinite linear;
+/* animation: x-axis 30s infinite linear;
   animation-delay: 20s;
 }
 
@@ -139,7 +139,7 @@
   100% {
     transform: translateY(50%);
   }
-}
+} */
 
 #calendar {
   max-width: 1100px;
