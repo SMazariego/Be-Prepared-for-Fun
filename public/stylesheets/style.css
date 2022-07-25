@@ -214,10 +214,12 @@ form label {
 }
 
 .quote-box {
-  background-color: #F7D3A4;
-  color: red;
-  padding: 30px;
+  background-color: #EDFAFE;
+  color: #10495A;
+  padding: 20px 35px;
+  margin: 20px 20px;
   border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .wrapper {
@@ -270,6 +272,7 @@ footer {
     flex-wrap: wrap;
     align-items: flex-start;
     background-attachment: scroll;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
 .hero-cta {
@@ -301,18 +304,35 @@ footer {
   border: 3px solid #10495A;
   padding: 20px;
   border-radius: 15px;
+  font-size: 15px;
 }
 
 .new-vacay-form input{
   width: 100%;
 }
+.new-vacay-form input:hover {
+  background-color: #EDFAFE;
+}
 
 .vacay-form h2 {
   color: #10495A;
   font-size: 45px;
-  margin: 20px;
-  padding: 20px 20px;
+  margin: 30px 20px;
+  padding: 30px 20px;
 }
+
+.vacay-form ol {
+  margin: 10px;
+  padding: 5px;
+  line-height: 3;
+}
+
+.vacay-form button:hover {
+  background-color: #EDFAFE;
+  font-size: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
 
 
 main {
