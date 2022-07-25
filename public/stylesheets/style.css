@@ -205,14 +205,34 @@ textarea {
   min-height: 100px;
 }
 
-form > div {
-  margin-bottom: 2%;
+main {
+  flex: 1;
+  padding: 2% 4%;
 }
 
-form label {
-  display: block;
+
+/* HEADER & FOOTER STYLING */
+header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  margin: 7px 0;
 }
 
+header h1 {
+  font-size: 1.55vw;
+  margin: 7px 5px;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  font-size: 110%;
+}
 .quote-box {
   background-color: #EDFAFE;
   color: #10495A;
@@ -240,27 +260,7 @@ form label {
   text-decoration: none;
 }
 
-header {
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 10px;
-  margin: 7px 0;
-}
-
-header h1 {
-  font-size: 1.55vw;
-  margin: 7px 5px;
-}
-
-footer {
-  border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  padding: 1%;
-  font-size: 110%;
-}
+/* HERO STYLES */
 
 .hero {
   border-radius: 15px;
@@ -293,6 +293,16 @@ footer {
 .hero-cta h3 {
   font-style: italic;
   font-size: 15px;
+}
+
+/* STYLING FOR WEBPAGE FORMS */
+
+form > div {
+  margin-bottom: 2%;
+}
+
+form label {
+  display: block;
 }
 
 .vacay-form {
@@ -333,12 +343,7 @@ footer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
-
-
-main {
-  flex: 1;
-  padding: 2% 4%;
-}
+/* BUTTONS STYLES  */
 
 .btn-no-style {
   background: none;
@@ -381,15 +386,6 @@ main {
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color 0.1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
 }
 
 .comment-form {
