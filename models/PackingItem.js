@@ -37,7 +37,7 @@ PackingItem.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "pckingItem",
+    modelName: "packingItem",
   }
 );
 

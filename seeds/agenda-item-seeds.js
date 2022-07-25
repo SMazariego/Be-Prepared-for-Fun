@@ -2,7 +2,7 @@ const { AgendaItem } = require("../models");
 
 const agendadata = [
   {
-    agenda_title: "flight",
+    title: "flight",
     start: "2022-11-05",
     startTime: "06:32:00",
     endTime: "14:55:00",
@@ -11,7 +11,7 @@ const agendadata = [
     vacay_id: 1,
   },
   {
-    agenda_title: "dinner",
+    title: "dinner",
     start: "2022-11-08",
     startTime: "16:10:00",
     endTime: "22:00:00",
@@ -20,7 +20,7 @@ const agendadata = [
     vacay_id: 1,
   },
   {
-    agenda_title: "beach picnic",
+    title: "beach picnic",
     start: "2022-11-11",
     startTime: "10:00:00",
     endTime: "14:00:00",
@@ -29,7 +29,7 @@ const agendadata = [
     vacay_id: 1,
   },
   {
-    agenda_title: "leaving 😭",
+    title: "leaving 😭",
     start: "2022-11-13",
     startTime: "16:32:00",
     endTime: "23:59:00",
