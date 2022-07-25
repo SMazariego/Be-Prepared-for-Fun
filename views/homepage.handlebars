@@ -8,32 +8,51 @@
 
   {{! <img height="100px" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-luggage-1554348191.png?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*"/> }}
 </div>
-<form class="login-form">
-  <div>
-    <label for="username-login">username:</label>
-    <input type="text" id="username-login" />
-  </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-</form>
+  <section class="hero">
+    <div class="hero-cta">
+      <div class=>
+        <h2 class="text-center text-nowrap">Oh The Places You Will Go!</h2>
+      </div>
+    </div>
 
-<form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
-  </div>
-  <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <button type="submit">signup</button>
-  </div>
-</form>
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col">
+        <form class="login-form card" style="width: 25rem;">
+          <h4 class="card-title text-center"> Login To View Your Vacations</h4>
+          <div>
+            <label for="username-login">username:</label>
+            <input type="text" id="username-login" />
+          </div>
+          <div>
+            <label for="password-login">password:</label>
+            <input type="password" id="password-login" />
+          </div>
+          <div>
+            <button type="submit">login</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col" >
+        <form class="signup-form card">
+          <h4 class="card-title text-center"> Sign Up to Plan Your Next Vacation</h4>
+          <div>
+            <label for="username-signup">username:</label>
+            <input type="text" id="username-signup" />
+          </div>
+          <div>
+            <label for="password-signup">password:</label>
+            <input type="password" id="password-signup" />
+          </div>
+          <div>
+            <button type="submit">signup</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</div>
 
 <script src="/javascript/login.js"></script>
