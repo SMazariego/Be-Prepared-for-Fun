@@ -3,7 +3,6 @@ const Vacay = require("./Vacay");
 const User = require("./User");
 const PackingItem = require("./PackingItem");
 const AgendaItem = require("./AgendaItem");
-
 // create associations
 User.hasMany(Vacay, {
   foreignKey: "user_id",

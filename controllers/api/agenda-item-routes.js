@@ -13,15 +13,20 @@ router.get("/", withAuth, (req, res) => {
 
 router.post("/", withAuth, (req, res) => {
   AgendaItem.create({
-    agenda_title: req.body.agenda_title,
+    title: req.body.title,
     vacay_id: req.body.vacay_id,
-    agenda_date: req.body.agenda_date,
-    agenda_start: req.body.agenda_start,
-    agenda_end: req.body.agenda_end,
+    start: req.body.start,
+    end: req.body.end,
+    // display_date: req.body.display_date,
+    // start_time: req.body.start_time,
+    // end_time: req.body.end_time,
     location: req.body.location,
     agenda_notes: req.body.agenda_notes,
   })
-    .then((dbAgendaItemData) => res.json(dbAgendaItemData))
+    .then((dbAgendaItemData) => {
+      console.log(dbAgendaItemData);
+      res.json(dbAgendaItemData);
+    })
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
@@ -31,10 +36,12 @@ router.post("/", withAuth, (req, res) => {
 router.put("/:id", withAuth, (req, res) => {
   AgendaItem.update(
     {
-      agenda_title: req.body.agenda_title,
-      agenda_date: req.body.agenda_date,
-      agenda_start: req.body.agenda_start,
-      agenda_end: req.body.agenda_end,
+      title: req.body.title,
+      start: req.body.start,
+      end: req.body.end,
+      // display_date: req.body.display_date,
+      // start_time: req.body.start_time,
+      // end_time: req.body.end_time,
       location: req.body.location,
       agenda_notes: req.body.agenda_notes,
     },

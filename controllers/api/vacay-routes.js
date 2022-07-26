@@ -22,54 +22,11 @@ router.get("/", withAuth, (req, res) => {
           "id",
           "agenda_title",
           "vacay_id",
-          "agenda_date",
-          "agenda_start",
-          "agenda_end",
-          "location",
-          "agenda_notes",
-        ],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
-  })
-    .then((dbVacayData) => res.json(dbVacayData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-router.get("/:id", (req, res) => {
-  Vacay.findOne({
-    where: {
-      id: req.params.id,
-    },
-    attributes: [
-      "id",
-      "title",
-      "user_id",
-      "start_date",
-      "end_date",
-      "destination",
-      "created_at",
-    ],
-    include: [
-      {
-        model: AgendaItem,
-        attributes: [
-          "id",
-          "agenda_title",
-          "vacay_id",
-          "agenda_date",
-          "agenda_start",
-          "agenda_end",
+          "start",
+          "end",
+          // "display_date",
+          // "start_time",
+          // "end_time",
           "location",
           "agenda_notes",
         ],
@@ -85,6 +42,47 @@ router.get("/:id", (req, res) => {
     ],
   })
     .then((dbVacayData) => {
+      console.log(dbVacayData);
+      res.json(dbVacayData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+//for calendar
+router.get("/:id", (req, res) => {
+  Vacay.findByPk(req.params.id, {
+    attributes: [
+      "id",
+      "title",
+      "user_id",
+      "start_date",
+      "end_date",
+      "destination",
+      "created_at",
+    ],
+    include: [
+      {
+        model: AgendaItem,
+        attributes: [
+          "id",
+          "title",
+          "vacay_id",
+          "start",
+          "end",
+          // "display_date",
+          // "start_time",
+          // "end_time",
+          "location",
+          "agenda_notes",
+        ],
+      },
+    ],
+  })
+    .then((dbVacayData) => {
+      // console.log(dbVacayData);
       if (!dbVacayData) {
         res.status(404).json({ message: "No Vacation found with this id" });
         return;
@@ -92,7 +90,6 @@ router.get("/:id", (req, res) => {
       res.json(dbVacayData);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500).json(err);
     });
 });
@@ -128,6 +125,7 @@ router.put("/:id", withAuth, (req, res) => {
     }
   )
     .then((dbVacayData) => {
+      console.log(dbVacayData);
       if (!dbVacayData) {
         res.status(404).json({ message: "No Vacation found with this id" });
         return;

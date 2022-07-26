@@ -14,6 +14,15 @@ async function deleteAgendaFormHandler(event) {
   } else {
     alert(response.statusText);
   }
+    const eventItem = await fetch(`/api/events/${id}`, {
+      method: "DELETE",
+    });
+
+    if (eventItem.ok) {
+      document.location.reload();
+    } else {
+      alert(eventItem.statusText);
+    }
 }
 
 document

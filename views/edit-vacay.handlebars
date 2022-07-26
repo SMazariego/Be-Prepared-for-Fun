@@ -12,7 +12,7 @@
         Destination: 
         <input name="vacay-destination" type="text" value="{{vacay.destination}}" />
         </div>
-        <div>        <input name="vacay-start" type="date" value="{{vacay.start_date}}" /> to         <input name="vacay-end" type="date" value="{{vacay.end_date}}" /> </div>
+        <div>        <input name="vacay-start" type="date" value="{{vacay.start_date}}" /> to <input name="vacay-end" type="date" value="{{vacay.end_date}}" /> </div>
     <button type="submit">Save vacay</button>
     <button type="button" class="delete-vacay-btn">Delete vacay</button>
   </form>
@@ -21,23 +21,23 @@
 <form class="agenda-form">
   <div>Add New Event:</div>
     <div>
+
       <input name="agenda-title" type="text"
-       value="{{agenda_title}}" 
+       value="{{title}}" 
        />
-        <input name="agenda-date" type="date"
-       value="{{agenda_date}}"/> 
+        <input id="2" name="agenda-date" type="date"
+       value="{{start}}"/> 
        : 
        <input name="agenda-start" type="time"
        value="{{agenda_start}}"/> 
        to 
        <input name="agenda-end" type="time"
        value="{{agenda_end}}"/>
-      <input name="agenda-location" type="text"
-       value="{{location}}" 
-       />
-      <input name="agenda_notes" type="text"
-       value="{{agenda_notes}}" 
-       />
+    <label for="agenda-location">Location</label>
+    <input name="agenda-location" type="text" value="{{location}}" />
+    <label for="agenda-notes">notes</label>
+
+    <input name="agenda-notes" type="text" value="{{agenda_notes}}" />
 
     </div>
       {{!-- ^add in dates and other info  --}}

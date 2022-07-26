@@ -40,6 +40,7 @@ router.get("/", withAuth, (req, res) => {
 });
 
 router.get("/edit/:id", withAuth, (req, res) => {
+  console.log(req.params.id);
   Vacay.findByPk(req.params.id, {
     attributes: [
       "id",
@@ -53,14 +54,15 @@ router.get("/edit/:id", withAuth, (req, res) => {
     include: [
       {
         model: AgendaItem,
-        //todo add what attributes we want
         attributes: [
           "id",
-          "agenda_title",
+          "title",
           "vacay_id",
-          "agenda_date",
-          "agenda_start",
-          "agenda_end",
+          "start",
+          "end",
+          // "display_date",
+          // "start_time",
+          // "end_time",
           "location",
           "agenda_notes",
         ],
@@ -70,8 +72,9 @@ router.get("/edit/:id", withAuth, (req, res) => {
     .then((dbVacayData) => {
       // console.log(dbVacayData);
       if (dbVacayData) {
+        console.log(dbVacayData);
         const vacay = dbVacayData.get({ plain: true });
-
+        console.log(vacay);
         res.render("edit-vacay", {
           vacay,
           loggedIn: true,
@@ -85,5 +88,36 @@ router.get("/edit/:id", withAuth, (req, res) => {
     });
 });
 //todo ^ might need to change if edit and show are combined
+
+router.get("/calendar/:id", withAuth, (req, res) => {
+  Vacay.findByPk(req.params.id, {
+    attributes: [
+      "id",
+      "title",
+      "user_id",
+      "start_date",
+      "end_date",
+      "destination",
+      "created_at",
+    ],
+  
+  })
+    .then((dbVacayData) => {
+      // console.log(dbVacayData);
+      if (dbVacayData) {
+        const vacay = dbVacayData.get({ plain: true });
+
+        res.render("calendar", {
+          vacay,
+          loggedIn: true,
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;

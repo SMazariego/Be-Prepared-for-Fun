@@ -1,35 +1,34 @@
-//todo figure out how to make work for calendar style
 async function agendaFormHandler(event) {
   event.preventDefault();
-
-  const agenda_title = document.querySelector(
-    'input[name="agenda-title"]'
-  ).value;
+  // console.log(
+  //   "date before" + document.querySelector('input[name="agenda-date"]').value
+  // );
+  const title = document.querySelector('input[name="agenda-title"]').value;
   const vacay_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  const agenda_date = document.querySelector(
-    'input[name="agenda-title"]'
-  ).value;
-  const agenda_start = document.querySelector(
-    'input[name="agenda-start"]'
-  ).value;
-  const agenda_end = document.querySelector('input[name="agenda-end"]').value;
+  const start = document.querySelector('input[name="agenda-date"]').value;
+  const startTime = document.querySelector('input[name="agenda-start"]').value;
+  const endTime = document.querySelector('input[name="agenda-end"]').value;
   const location = document.querySelector(
     'input[name="agenda-location"]'
   ).value;
   const agenda_notes = document.querySelector(
     'input[name="agenda-notes"]'
   ).value;
-  if (agenda_title) {
+
+  // console.log("agenda date" + start);
+  if (title) {
     const response = await fetch(`/api/agendas`, {
       method: "POST",
       body: JSON.stringify({
-        agenda_title,
+        title,
         vacay_id,
-        agenda_date,
-        agenda_start,
-        agenda_end,
+        start: `${start}T${startTime}`,
+        end: `${start}T${endTime}`,
+        // display_date: `${start}`,
+        // startTime,
+        // endTime,
         location,
         agenda_notes,
       }),
@@ -39,6 +38,7 @@ async function agendaFormHandler(event) {
     });
 
     if (response.ok) {
+      console.log(response);
       document.location.reload();
     } else {
       alert(response.statusText);
