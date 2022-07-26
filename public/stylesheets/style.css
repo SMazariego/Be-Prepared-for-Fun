@@ -153,6 +153,7 @@ html {
   margin: 0;
   font-family: sans-serif;
   color: #333;
+  background-image: linear-gradient(to bottom right, #DEF5F7, #75AEB5, #2F8CA8);
 }
 
 a {
@@ -204,18 +205,41 @@ textarea {
   min-height: 100px;
 }
 
-form > div {
-  margin-bottom: 2%;
+main {
+  flex: 1;
+  padding: 2% 4%;
 }
 
-form label {
-  display: block;
+
+/* HEADER & FOOTER STYLING */
+header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  margin: 7px 0;
 }
 
+header h1 {
+  font-size: 1.55vw;
+  margin: 7px 5px;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  font-size: 110%;
+}
 .quote-box {
-  background-color: pink;
-  color: red;
-  padding: 30px;
+  background-color: #EDFAFE;
+  color: #10495A;
+  padding: 20px 35px;
+  margin: 20px 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .wrapper {
@@ -227,22 +251,99 @@ form label {
   flex-direction: column;
 }
 
-header {
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1%;
+.wrapper a:hover {
+  border-radius: 3px;
+  padding: 10px 10px;
+  background: #EDFAFE;
+  color: #10495A;
+  text-shadow: none;
+  text-decoration: none;
 }
 
-header h1 {
-  font-size: 1em;
+/* HERO STYLES */
+
+.hero {
+  border-radius: 15px;
+  background-image: url(../img/vacay-hero1.jpeg);
+    background-size: cover;
+    background-position: 45% 55%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-attachment: scroll;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
-main {
-  flex: 1;
-  padding: 2% 4%;
+.hero-cta {
+  width: 35%;
+  text-align: center;
+  margin: 5%;
+  color: #fff;
+  font-size: 20px;
+  line-height: 10;
 }
+
+.hero-cta h2 {
+  font-style: italic;
+  font-size: 40px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-cta h3 {
+  font-style: italic;
+  font-size: 15px;
+}
+
+/* STYLING FOR WEBPAGE FORMS */
+
+form > div {
+  margin-bottom: 2%;
+}
+
+form label {
+  display: block;
+}
+
+.vacay-form {
+  margin: 60px;
+  padding: 20px 20px;
+}
+
+.new-vacay-form{
+  border: 3px solid #10495A;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 15px;
+}
+
+.new-vacay-form input{
+  width: 100%;
+}
+.new-vacay-form input:hover {
+  background-color: #EDFAFE;
+}
+
+.vacay-form h2 {
+  color: #10495A;
+  font-size: 45px;
+  margin: 30px 20px;
+  padding: 30px 20px;
+}
+
+.vacay-form ol {
+  margin: 10px;
+  padding: 5px;
+  line-height: 3;
+}
+
+.vacay-form button:hover {
+  background-color: #EDFAFE;
+  font-size: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+/* BUTTONS STYLES  */
 
 .btn-no-style {
   background: none;
@@ -250,7 +351,7 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: #10495A;
   font-size: 100%;
   font-weight: bold;
   transition: color 0.1s;
@@ -258,8 +359,9 @@ main {
 }
 
 .btn-no-style:hover {
-  background: none;
-  color: #3486eb;
+  background: #EDFAFE;
+  color: #1A401F;
+  padding: 10px 10px;
 }
 
 .delete-post-btn {
@@ -284,15 +386,6 @@ main {
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color 0.1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
 }
 
 .comment-form {
@@ -322,10 +415,3 @@ main {
   margin-bottom: 5%;
 }
 
-footer {
-  border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  padding: 1%;
-  font-size: 110%;
-}
