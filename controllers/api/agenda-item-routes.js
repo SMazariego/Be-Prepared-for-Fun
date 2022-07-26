@@ -16,12 +16,17 @@ router.post("/", withAuth, (req, res) => {
     title: req.body.title,
     vacay_id: req.body.vacay_id,
     start: req.body.start,
-    startTime: req.body.startTime,
-    endTime: req.body.endTime,
+    end: req.body.end,
+    // display_date: req.body.display_date,
+    // start_time: req.body.start_time,
+    // end_time: req.body.end_time,
     location: req.body.location,
     agenda_notes: req.body.agenda_notes,
   })
-    .then((dbAgendaItemData) => res.json(dbAgendaItemData))
+    .then((dbAgendaItemData) => {
+      console.log(dbAgendaItemData);
+      res.json(dbAgendaItemData);
+    })
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
@@ -33,8 +38,10 @@ router.put("/:id", withAuth, (req, res) => {
     {
       title: req.body.title,
       start: req.body.start,
-      startTime: req.body.startTime,
-      endTime: req.body.endTime,
+      end: req.body.end,
+      // display_date: req.body.display_date,
+      // start_time: req.body.start_time,
+      // end_time: req.body.end_time,
       location: req.body.location,
       agenda_notes: req.body.agenda_notes,
     },

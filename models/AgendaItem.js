@@ -18,17 +18,14 @@ AgendaItem.init(
         len: [1],
       },
     },
+
     start: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-    },
-    startTime: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     //todo maybe change to event length instead and auto calculate time ends
-    endTime: {
-      type: DataTypes.TIME,
+    end: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     // figure out how to make it an address
@@ -36,6 +33,18 @@ AgendaItem.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // display_date: {
+    //   type: DataTypes.DATE,
+    //   allowNull: false,
+    // },
+    // start_time: {
+    //   type: DataTypes.TIME,
+    //   allowNull: false,
+    // },
+    // end_time: {
+    //   type: DataTypes.TIME,
+    //   allowNull: false,
+    // },
     agenda_notes: {
       type: DataTypes.STRING,
     },

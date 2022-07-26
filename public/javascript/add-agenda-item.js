@@ -1,20 +1,14 @@
 async function agendaFormHandler(event) {
   event.preventDefault();
-  console.log(
-    "date before" + document.querySelector('input[name="agenda-date"]').value
-  );
-  const title = document.querySelector(
-    'input[name="agenda-title"]'
-  ).value;
+  // console.log(
+  //   "date before" + document.querySelector('input[name="agenda-date"]').value
+  // );
+  const title = document.querySelector('input[name="agenda-title"]').value;
   const vacay_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  const start = document.querySelector(
-    'input[name="agenda-date"]'
-  ).value;
-  const startTime = document.querySelector(
-    'input[name="agenda-start"]'
-  ).value;
+  const start = document.querySelector('input[name="agenda-date"]').value;
+  const startTime = document.querySelector('input[name="agenda-start"]').value;
   const endTime = document.querySelector('input[name="agenda-end"]').value;
   const location = document.querySelector(
     'input[name="agenda-location"]'
@@ -22,21 +16,19 @@ async function agendaFormHandler(event) {
   const agenda_notes = document.querySelector(
     'input[name="agenda-notes"]'
   ).value;
-  // const title = title;
-  // const start = start;
-  // const startTime = startTime;
-  // const endTime = endTime;
-  // const description = agenda_notes;
-  console.log("agenda date" + start);
+
+  // console.log("agenda date" + start);
   if (title) {
     const response = await fetch(`/api/agendas`, {
       method: "POST",
       body: JSON.stringify({
         title,
         vacay_id,
-        start,
-        startTime,
-        endTime,
+        start: `${start}T${startTime}`,
+        end: `${start}T${endTime}`,
+        // display_date: `${start}`,
+        // startTime,
+        // endTime,
         location,
         agenda_notes,
       }),
@@ -46,6 +38,7 @@ async function agendaFormHandler(event) {
     });
 
     if (response.ok) {
+      console.log(response);
       document.location.reload();
     } else {
       alert(response.statusText);
