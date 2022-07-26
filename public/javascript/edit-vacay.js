@@ -1,6 +1,5 @@
 async function editVacayFormHandler(event) {
   event.preventDefault();
-  console.log(document.getElementById("2").value);
   const title = document
     .querySelector('input[name="vacay-title"]')
     .value.trim();
@@ -8,7 +7,6 @@ async function editVacayFormHandler(event) {
     window.location.toString().split("/").length - 1
   ];
   const start_date = document.querySelector('input[name="vacay-start"]').value;
-  console.log(start_date);
   const end_date = document.querySelector('input[name="vacay-end"]').value;
   const destination = document.querySelector(
     'input[name="vacay-destination"]'
@@ -28,7 +26,6 @@ async function editVacayFormHandler(event) {
   });
 
   if (response.ok) {
-    console.log(response);
     document.location.reload();
   } else {
     alert(response.statusText);

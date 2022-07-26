@@ -1,0 +1,14 @@
+{{! todo create the display for a single packing list item  }}
+
+<form
+  class="animate__animated animate__slideInLeft animate__delay-1s packing-item-form"
+>
+  <div>
+    {{! figure out checkbox part  }}
+    <input name="packing-text" type="text" value="{{packing_text}}" />
+
+  {{!-- change to icons  --}}
+  <button id={{id}} class="update-packing-btn" type="submit">Edit</button>
+  <button type="button" id={{id}} class="delete-packing-btn">Delete</button>
+    </div>
+</form>

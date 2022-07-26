@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Vacay, User, AgendaItem } = require("../models");
+const { Vacay, User, AgendaItem, PackingItem } = require("../models");
 const withAuth = require("../utils/auth");
 // const animatePlane = require("../public/javascript/animatePlane");
 // get all posts for dashboard
@@ -100,7 +100,6 @@ router.get("/calendar/:id", withAuth, (req, res) => {
       "destination",
       "created_at",
     ],
-  
   })
     .then((dbVacayData) => {
       // console.log(dbVacayData);
@@ -108,6 +107,41 @@ router.get("/calendar/:id", withAuth, (req, res) => {
         const vacay = dbVacayData.get({ plain: true });
 
         res.render("calendar", {
+          vacay,
+          loggedIn: true,
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
+//add route for rendering packing list page when the button is clicked
+router.get("/packing/:id", withAuth, (req, res) => {
+  Vacay.findByPk(req.params.id, {
+    attributes: [
+      "id",
+      "title",
+    ],
+    include: [
+      {
+        model: PackingItem,
+        attributes: [
+          "id",
+          "packing_text",
+        ],
+      },
+    ],
+  })
+    .then((dbVacayData) => {
+      // console.log(dbVacayData);
+      if (dbVacayData) {
+        const vacay = dbVacayData.get({ plain: true });
+
+        res.render("packing", {
           vacay,
           loggedIn: true,
         });

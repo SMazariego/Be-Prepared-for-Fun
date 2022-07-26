@@ -26,54 +26,5 @@ router.get("/:id", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-// router.get("/:id", withAuth, (req, res) => {
-//   res.render("calendar", { vacay_id: req.params.id });
-// });
-
-// router.get("/:id", withAuth, (req, res) => {
-//   Vacay.findByPk({
-//     where: {
-//       id: req.params.id,
-//     },
-//     attributes: [
-//       "id",
-//       "title",
-//       "start_date",
-//       "end_date",
-//       "destination",
-//       "created_at",
-//     ],
-//     include: [
-//       {
-//         model: AgendaItem,
-//         attributes: [
-//           "id",
-//           "title",
-//           "vacay_id",
-//           "start",
-//           "startTime",
-//           "endTime",
-//           "location",
-//           "agenda_notes",
-//         ],
-//       },
-//     ],
-//   })
-//     .then((dbVacayData) => {
-//       if (dbVacayData) {
-//         const events = dbVacayData.get({ plain: true });
-
-//         res.render("calendar", {
-//           events,
-//           loggedIn: true,
-//         });
-//       } else {
-//         res.status(404).end();
-//       }
-//     })
-//     .catch((err) => {
-//       res.status(500).json(err);
-//     });
-// });
 
 module.exports = router;
