@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Vacay, User, AgendaItem, Event } = require("../../models");
+const { Vacay, User, AgendaItem } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // get all users
@@ -22,9 +22,11 @@ router.get("/", withAuth, (req, res) => {
           "id",
           "agenda_title",
           "vacay_id",
-          "agenda_date",
-          "agenda_start",
-          "agenda_end",
+          "start",
+          "end",
+          // "display_date",
+          // "start_time",
+          // "end_time",
           "location",
           "agenda_notes",
         ],
@@ -33,18 +35,6 @@ router.get("/", withAuth, (req, res) => {
           attributes: ["username"],
         },
       },
-      // {
-      //   model: Event,
-      //   attributes: [
-      //     "id",
-      //     "title",
-      //     "start",
-      //     "startTime",
-      //     "endTime",
-      //     // "location",
-      //     // "description",
-      //   ],
-      // },
       {
         model: User,
         attributes: ["username"],
@@ -61,11 +51,9 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
+//for calendar
 router.get("/:id", (req, res) => {
-  Vacay.findOne({
-    where: {
-      id: req.params.id,
-    },
+  Vacay.findByPk(req.params.id, {
     attributes: [
       "id",
       "title",
@@ -80,38 +68,21 @@ router.get("/:id", (req, res) => {
         model: AgendaItem,
         attributes: [
           "id",
-          "agenda_title",
+          "title",
           "vacay_id",
-          "agenda_date",
-          "agenda_start",
-          "agenda_end",
+          "start",
+          "end",
+          // "display_date",
+          // "start_time",
+          // "end_time",
           "location",
           "agenda_notes",
         ],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      // {
-      //   model: Event,
-      //   attributes: [
-      //     "id",
-      //     "title",
-      //     "start",
-      //     "startTime",
-      //     "endTime",
-      //     // "location",
-      //     // "description",
-      //   ],
-      // },
-      {
-        model: User,
-        attributes: ["username"],
       },
     ],
   })
     .then((dbVacayData) => {
+      // console.log(dbVacayData);
       if (!dbVacayData) {
         res.status(404).json({ message: "No Vacation found with this id" });
         return;
@@ -119,7 +90,6 @@ router.get("/:id", (req, res) => {
       res.json(dbVacayData);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500).json(err);
     });
 });

@@ -56,11 +56,13 @@ router.get("/edit/:id", withAuth, (req, res) => {
         model: AgendaItem,
         attributes: [
           "id",
-          "agenda_title",
+          "title",
           "vacay_id",
-          "agenda_date",
-          "agenda_start",
-          "agenda_end",
+          "start",
+          "end",
+          // "display_date",
+          // "start_time",
+          // "end_time",
           "location",
           "agenda_notes",
         ],
@@ -98,20 +100,7 @@ router.get("/calendar/:id", withAuth, (req, res) => {
       "destination",
       "created_at",
     ],
-    include: [
-      {
-        model: Event,
-        attributes: [
-          "title",
-          // "vacay_id",
-          "start",
-          "startTime",
-          "endTime",
-          // "location",
-          "description",
-        ],
-      },
-    ],
+  
   })
     .then((dbVacayData) => {
       // console.log(dbVacayData);
