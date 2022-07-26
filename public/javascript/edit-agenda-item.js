@@ -1,4 +1,4 @@
-//todo figure out how to make work for calendar style
+
 async function editEventHandler(event) {
   event.preventDefault();
   const id = event.target.id;

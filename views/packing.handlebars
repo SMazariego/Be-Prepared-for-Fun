@@ -1,0 +1,43 @@
+{{!-- todo create the display for the packing list page  --}}
+
+<article class="packing-list">
+  <h2>
+    {{!-- i'm not certain vacay.title will work so might need to delete that and just say packing list  --}}
+    Packing List for {{vacay.title}}
+  </h2>
+
+<form class="packing-item-form">
+  <div>Add New Item:</div>
+    <div>
+    <input name="packing-text" type="text" value="{{packing_text}}" />
+    </div>
+    <button id="save-packing-btn" type="submit">Add item</button>
+</form>
+
+{{!-- check if there are any packing items for this vacation. if there isn't then say "Packing List Not Created Yet " --}}
+{{#if vacay.packingItems.length}}
+<section>
+  <h2>Packing List:</h2>
+  {{!-- for each packing item go through and add a partial packing-item.handlebar line to the list  --}}
+  <ul>
+    {{#each vacay.packingItems as | packingItem |}}
+    <li>
+      {{> packing-item packingItem}}
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{else}}
+<div>No Packing List Created Yet</div>
+{{/if}}
+</article>
+
+{{!-- script files for calling edit delete and add packing items  --}}
+{{!-- <script src="/javascript/packing.js"></script> --}}
+<script src="/javascript/add-packing-item.js"></script>
+
+{{#if vacay.packingItems.length}}
+<script src="/javascript/edit-packing-item.js"></script>
+<script src="/javascript/delete-packing-item.js"></script>
+{{/if}}
+
