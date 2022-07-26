@@ -7,12 +7,16 @@ async function packingFormHandler(event) {
   const packing_text = document.querySelector(
     'input[name="packing-text"]'
   ).value;
+  const vacay_id = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
+  ];
   // if there is something in the input line above then get a response by await fetching the packingItems post method
   if (packing_text) {
     const response = await fetch(`/api/packingItems`, {
       method: "POST",
       body: JSON.stringify({
         packing_text,
+        vacay_id,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -29,5 +33,5 @@ async function packingFormHandler(event) {
 
 //add event listener for add button to run function
 document
-  .getElementById("save-packing-btn")
+  .querySelector(".packing-item-form")
   .addEventListener("submit", packingFormHandler);

@@ -125,11 +125,6 @@ router.get("/packing/:id", withAuth, (req, res) => {
     attributes: [
       "id",
       "title",
-      "user_id",
-      "start_date",
-      "end_date",
-      "destination",
-      "created_at",
     ],
     include: [
       {
