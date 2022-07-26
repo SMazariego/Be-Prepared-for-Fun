@@ -37,6 +37,6 @@ app.use(require("./controllers"));
 
 //! change to force:false for launch
 
-sequelize.sync({ force: true}).then(() => {
+sequelize.sync({ force: false}).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
