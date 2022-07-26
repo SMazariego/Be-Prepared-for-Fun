@@ -1,17 +1,31 @@
-<section>
+<section class="hero">
+  <div class="hero-cta">
+    <div class="flex-row">
+      <h2>Not All those Who Wander Are Lost</h2>
+      <h3>J.R.R Tolkien </h3>
+      <p> You Next Adventure Begins Here!</p>
+    </div>
+  </div>
+</section>
+
+<section class="vacay-form">
   
-  <h2>Create New Vacation</h2>
+  <h2 class="text-center">Create New Vacation</h2>
 
   <form class="new-vacay-form">
-    <div>
-      <label for="vacay-title">Title</label>
-      <input type="text" id="vacay-title" name="vacay-title" />
-            <label for="vacay-start">Start</label>
-      <input type="date" id="vacay-start" name="vacay-start" />
-            <label for="vacay-end">End</label>
-      <input type="date" id="vacay-end" name="vacay-end" />
-            <label for="vacay-destination">Destination</label>
-      <input type="text" id="vacay-destination" name="vacay-destination" />
+    <div class="form-floating mb-3"
+    >
+      <label class="form-label" for="vacay-title">Title</label>
+      <input class="form-control" type="text" id="vacay-title" name="vacay-title" />
+
+      <label class="form-label" for="vacay-start">Start</label>
+      <input class="form-control" type="date" id="vacay-start" name="vacay-start" />
+
+      <label class="form-label" for="vacay-end">End</label>
+      <input class="form-control" type="date" id="vacay-end" name="vacay-end" />
+      
+      <label class="form-label" for="vacay-destination">Destination</label>
+      <input class="form-control"type="text" id="vacay-destination" name="vacay-destination" />
     </div>
 
     <button type="submit" class="btn">Create</button>
@@ -19,16 +33,18 @@
 </section>
 
 {{#if vacays.length}}
-<section>
-  <h2>Your Vacations</h2>
-  <ol>
-    {{#each vacays as |vacay|}}
-    <li>
-      {{> vacay-info vacay}}
-      <a href="/dashboard/edit/{{vacay.id}}" class="edit-link">Edit Vacation</a>
-    </li>
-    {{/each}}
-  </ol>
+<section class="vacay-form">
+  <h2 class="text-center">Your Vacations</h2>
+  <div>
+    <ol>
+      {{#each vacays as |vacay|}}
+      <li>
+        {{> vacay-info vacay}}
+        <a href="/dashboard/edit/{{vacay.id}}" class="edit-link">Edit Vacation</a>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
 </section>
 {{/if}}
 
