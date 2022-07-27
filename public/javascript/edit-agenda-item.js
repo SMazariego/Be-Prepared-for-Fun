@@ -1,4 +1,3 @@
-
 async function editEventHandler(event) {
   event.preventDefault();
   const id = event.target.id;
@@ -7,12 +6,14 @@ async function editEventHandler(event) {
     'input[name="agenda-date"]'
   ).value;
   const start_time = document.querySelector('input[name="agenda-start"]').value;
-  const end_time = document.querySelector('input[name="agenda-end"]').value;
+  const end_time = document.querySelector(
+    `input[name="agenda-end${id}"]`
+  ).value;
   const location = document.querySelector(
-    'input[name="agenda-location"]'
+    `input[name="agenda-location${id}"]`
   ).value;
   const agenda_notes = document.querySelector(
-    'input[name="agenda-notes"]'
+    `input[name="agenda-notes${id}"]`
   ).value;
   if (title) {
     const response = await fetch(`/api/agendas/${id}`, {
@@ -40,5 +41,5 @@ async function editEventHandler(event) {
   }
 }
 document
-  .querySelector(".update-agenda-btn")
+  .querySelector("#agenda-edit-sec")
   .addEventListener("click", editEventHandler);
