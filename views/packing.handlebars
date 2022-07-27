@@ -1,5 +1,5 @@
 <article class="packing-list">
-  
+
 </article><button class="cal-view nav-v-btn">Calendar</button>
 <button class="edit-vacay nav-v-btn">Edit Vacation</button>
 
@@ -22,7 +22,7 @@
 <section>
   <h2>Packing List:</h2>
   {{!-- for each packing item go through and add a partial packing-item.handlebar line to the list  --}}
-  <ul>
+  <ul style="list-style-type:none">
     {{#each vacay.packingItems as | packingItem |}}
     <li>
       {{> packing-item packingItem}}
