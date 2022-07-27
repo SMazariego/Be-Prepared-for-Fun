@@ -28,14 +28,15 @@
       <input class="form-control"type="text" id="vacay-destination" name="vacay-destination" />
     </div>
 
-    <button type="submit" class="btn" id="new-vacay-form">Create</button>
+    <button type="button" class="new-vacay-btn">Create</button>
+
   </form>
 </section>
 
 {{#if vacays.length}}
-<section class="vacay-form" id="yourVacations">
+<section class="vacay-form">
   <h2 class="text-center">Your Vacations</h2>
-  <div>
+  <div id="yourVacations">
     <ol>
       {{#each vacays as |vacay|}}
       <li>
