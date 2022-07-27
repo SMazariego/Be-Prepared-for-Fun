@@ -2,17 +2,17 @@
   class="animate__animated animate__slideInLeft animate__delay-1s agenda-edit-form"
 >
   <div>
-    <input name="agenda-title" type="text" value="{{title}}" />
-    <input name="agenda-date" type="date" value="{{display_date}}" />
+    <input name="agenda-title{{id}}" type="text" value="{{title}}" />
+    <input name="agenda-date{{id}}" type="date" value="{{display_date}}" />
     :
-    <input name="agenda-start" type="time" value="{{start_time}}" />
+    <input name="agenda-start{{id}}" type="time" value="{{start_time}}" />
     to
-    <input name="agenda-end" type="time" value="{{end_time}}" />
-    <label for="agenda-location">Location</label>
-    <input name="agenda-location" type="text" value="{{location}}" />
-    <label for="agenda-notes">notes</label>
+    <input name="agenda-end{{id}}" type="time" value="{{end_time}}" />
+    <label for="agenda-location{{id}}">Location</label>
+    <input name="agenda-location{{id}}" type="text" value="{{location}}" />
+    <label for="agenda-notes{{id}}">notes</label>
 
-    <input name="agenda-notes" type="text" value="{{agenda_notes}}" />
+    <input name="agenda-notes{{id}}" type="text" value="{{agenda_notes}}" />
     {{! ^afix dates and time format  }}
   </div>
   <button id={{id}} class="update-agenda-btn" type="button">Edit</button>

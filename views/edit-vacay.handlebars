@@ -15,7 +15,7 @@
         <input name="vacay-destination" type="text" value="{{vacay.destination}}" />
         </div>
         <div>        <input name="vacay-start" type="date" value="{{vacay.start_date}}" /> to <input name="vacay-end" type="date" value="{{vacay.end_date}}" /> </div>
-    <button type="submit">Save vacay</button>
+    <button class="edit-vacay-btn" type="button">Save vacay</button>
     <button type="button" class="delete-vacay-btn">Delete vacay</button>
   </form>
 </article>
@@ -24,33 +24,33 @@
   <div>Add New Event:</div>
     <div>
 
-      <input name="agenda-title1" type="text"
+      <input name="agenda-titleN" type="text"
        value="{{title}}" 
        />
-        <input id="2" name="agenda-date1" type="date"
+        <input id="2" name="agenda-dateN" type="date"
        value="{{display_date}}"/> 
        : 
-       <input name="agenda-start1" type="time"
+       <input name="agenda-startN" type="time"
        value="{{start_time}}"/> 
        to 
-       <input name="agenda-end1" type="time"
+       <input name="agenda-endN" type="time"
        value="{{end_time}}"/>
-    <label for="agenda-location1">Location</label>
-    <input name="agenda-location1" type="text" value="{{location}}" />
-    <label for="agenda-notes1">notes</label>
+    <label for="agenda-locationN">Location</label>
+    <input name="agenda-locationN" type="text" value="{{location}}" />
+    <label for="agenda-notesN">notes</label>
 
-    <input name="agenda-notes1" type="text" value="{{agenda_notes}}" />
+    <input name="agenda-notesN" type="text" value="{{agenda_notes}}" />
 
     </div>
       {{!-- ^add in dates and other info  --}}
-    <button id="save-event-btn" type="submit">Save event</button>
+    <button id="save-event-btn" type="button">Save event</button>
   </form>
 </article>
 
 <article class="agenda-list">
 
 {{#if vacay.agendaItems.length}}
-<section>
+<section id="agenda-edit-sec">
   <h2>Agenda</h2>
   <div>
     {{#each vacay.agendaItems as | agendaItem |}}
