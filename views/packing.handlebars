@@ -1,5 +1,3 @@
-{{!-- todo create the display for the packing list page  --}}
-
 <article class="packing-list">
     <div class="hero-pack">
     <h2>
@@ -7,6 +5,15 @@
       Packing List for {{vacay.title}}
     </h2>
     </div>
+
+</article><button class="cal-view nav-v-btn">Calendar</button>
+<button class="edit-vacay nav-v-btn">Edit Vacation</button>
+
+
+  <h2>
+    {{!-- i'm not certain vacay.title will work so might need to delete that and just say packing list  --}}
+    Packing List for {{vacay.title}}
+  </h2>
 
   <form class="packing-item-form card">
     <div class="text-center card-title">
@@ -23,7 +30,7 @@
 <section class="listed-items">
   <h2>Packing List:</h2>
   {{!-- for each packing item go through and add a partial packing-item.handlebar line to the list  --}}
-  <ul>
+  <ul style="list-style-type:none">
     {{#each vacay.packingItems as | packingItem |}}
     <li>
       {{> packing-item packingItem}}

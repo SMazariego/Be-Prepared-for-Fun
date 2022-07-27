@@ -1,14 +1,11 @@
 {{!-- might combine with single vacay  --}}
+<button class="cal-view nav-v-btn">Calendar</button>
+<button class="packing-list nav-v-btn">Packing List</button>
 <article>
-  {{!-- <a href="/dashboard"> &larr; Back to dashboard</a> --}}
+
   <h2 class="animate__animated animate__bounce">
     {{vacay.title}}
   </h2>
-      <a
-      id={{id}}
-      href="/dashboard/calendar/{{id}}"
-      class="calendar"
-    >Calendar</a>
   <form class="edit-vacay-form">
     <div>
       <input name="vacay-title" type="text" value="{{vacay.title}}" />
@@ -18,7 +15,7 @@
         <input name="vacay-destination" type="text" value="{{vacay.destination}}" />
         </div>
         <div>        <input name="vacay-start" type="date" value="{{vacay.start_date}}" /> to <input name="vacay-end" type="date" value="{{vacay.end_date}}" /> </div>
-    <button type="submit">Save vacay</button>
+    <button class="edit-vacay-btn" type="button">Save vacay</button>
     <button type="button" class="delete-vacay-btn">Delete vacay</button>
   </form>
 </article>
@@ -27,42 +24,38 @@
   <div>Add New Event:</div>
     <div>
 
-      <input name="agenda-title" type="text"
+      <input name="agenda-titleN" type="text"
        value="{{title}}" 
        />
-        <input id="2" name="agenda-date" type="date"
-       value="{{start}}"/> 
+        <input id="2" name="agenda-dateN" type="date"
+       value="{{display_date}}"/> 
        : 
-       <input name="agenda-start" type="time"
-       value="{{agenda_start}}"/> 
+       <input name="agenda-startN" type="time"
+       value="{{start_time}}"/> 
        to 
-       <input name="agenda-end" type="time"
-       value="{{agenda_end}}"/>
-    <label for="agenda-location">Location</label>
-    <input name="agenda-location" type="text" value="{{location}}" />
-    <label for="agenda-notes">notes</label>
+       <input name="agenda-endN" type="time"
+       value="{{end_time}}"/>
+    <label for="agenda-locationN">Location</label>
+    <input name="agenda-locationN" type="text" value="{{location}}" />
+    <label for="agenda-notesN">notes</label>
 
-    <input name="agenda-notes" type="text" value="{{agenda_notes}}" />
+    <input name="agenda-notesN" type="text" value="{{agenda_notes}}" />
 
     </div>
       {{!-- ^add in dates and other info  --}}
-    <button id="save-event-btn" type="submit">Save event</button>
+    <button id="save-event-btn" type="button">Save event</button>
   </form>
 </article>
 
 <article class="agenda-list">
 
 {{#if vacay.agendaItems.length}}
-<section>
+<section id="agenda-edit-sec">
   <h2>Agenda</h2>
-{{!-- <a href="/agenda/{{vacay.id}}" class="agenda-link"> calendar view</a> --}}
-{{!-- ^add in dates and other info list format --}}
   <div>
     {{#each vacay.agendaItems as | agendaItem |}}
     <div>
       {{> agenda-item-info agendaItem}}
-        {{!-- <button id={{agendaItem.id}} class="update-agenda-btn" type="submit">Edit</button>
-        <button type="button" id={{agendaItem.id}} class="delete-agenda-btn">Delete</button> --}}
     </div>
     {{/each}}
   </div>
