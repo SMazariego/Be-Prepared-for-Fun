@@ -1,14 +1,10 @@
 {{!-- might combine with single vacay  --}}
 <article>
-  {{!-- <a href="/dashboard"> &larr; Back to dashboard</a> --}}
+<button class="cal-view nav-v-btn">Calendar</button>
+<button class="packing-list nav-v-btn">Packing List</button>
   <h2 class="animate__animated animate__bounce">
     {{vacay.title}}
   </h2>
-      <a
-      id={{id}}
-      href="/dashboard/calendar/{{id}}"
-      class="calendar"
-    >Calendar</a>
   <form class="edit-vacay-form">
     <div>
       <input name="vacay-title" type="text" value="{{vacay.title}}" />
@@ -27,22 +23,22 @@
   <div>Add New Event:</div>
     <div>
 
-      <input name="agenda-title" type="text"
+      <input name="agenda-title1" type="text"
        value="{{title}}" 
        />
-        <input id="2" name="agenda-date" type="date"
-       value="{{start}}"/> 
+        <input id="2" name="agenda-date1" type="date"
+       value="{{display_date}}"/> 
        : 
-       <input name="agenda-start" type="time"
-       value="{{agenda_start}}"/> 
+       <input name="agenda-start1" type="time"
+       value="{{start_time}}"/> 
        to 
-       <input name="agenda-end" type="time"
-       value="{{agenda_end}}"/>
-    <label for="agenda-location">Location</label>
-    <input name="agenda-location" type="text" value="{{location}}" />
-    <label for="agenda-notes">notes</label>
+       <input name="agenda-end1" type="time"
+       value="{{end_time}}"/>
+    <label for="agenda-location1">Location</label>
+    <input name="agenda-location1" type="text" value="{{location}}" />
+    <label for="agenda-notes1">notes</label>
 
-    <input name="agenda-notes" type="text" value="{{agenda_notes}}" />
+    <input name="agenda-notes1" type="text" value="{{agenda_notes}}" />
 
     </div>
       {{!-- ^add in dates and other info  --}}
@@ -55,14 +51,10 @@
 {{#if vacay.agendaItems.length}}
 <section>
   <h2>Agenda</h2>
-{{!-- <a href="/agenda/{{vacay.id}}" class="agenda-link"> calendar view</a> --}}
-{{!-- ^add in dates and other info list format --}}
   <div>
     {{#each vacay.agendaItems as | agendaItem |}}
     <div>
       {{> agenda-item-info agendaItem}}
-        {{!-- <button id={{agendaItem.id}} class="update-agenda-btn" type="submit">Edit</button>
-        <button type="button" id={{agendaItem.id}} class="delete-agenda-btn">Delete</button> --}}
     </div>
     {{/each}}
   </div>
