@@ -19,7 +19,6 @@
     padding: 20px 20px;
 }
 
-<<<<<<< HEAD
 /* CALENDAR PAGE HERO SECTION */
 
 .hero-cal {
@@ -49,6 +48,15 @@
     margin: 5px 5px;
     padding: 10px 10px;
     color: #10495A;
+}
+
+.work button {
+    color: #fff;
+    background-color: #10495A;
+}
+
+.work button:hover {
+    background-color: #2F8CA8;
 }
 
 /* PACKING LIST PAGE STYLES */
@@ -105,9 +113,7 @@
     margin: 30px 20px;
     padding: 20px 10px;
 }
-=======
 .nav-v-btn {
   color: navy;
   background-color: bisque;
 }
->>>>>>> 70ffa5239d88966a93799593fecc128b5b9d7f89
