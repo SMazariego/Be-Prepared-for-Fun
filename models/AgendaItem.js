@@ -33,18 +33,18 @@ AgendaItem.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // display_date: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    // },
-    // start_time: {
-    //   type: DataTypes.TIME,
-    //   allowNull: false,
-    // },
-    // end_time: {
-    //   type: DataTypes.TIME,
-    //   allowNull: false,
-    // },
+    display_date: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+    },
+    start_time: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
+    end_time: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
     agenda_notes: {
       type: DataTypes.STRING,
     },

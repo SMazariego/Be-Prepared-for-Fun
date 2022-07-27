@@ -1,6 +1,6 @@
 //declare your necessary constants. express router, packing items model, and withauth utility
 const router = require("express").Router();
-const { PackingItem, Vacay } = require("../../models");
+const { PackingItem } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 //find all packing items with a vacay id indicated. this route will be used to populate the packing list page

@@ -3,6 +3,7 @@ const sequelize = require("../config/connection");
 const { Vacay, User, AgendaItem, PackingItem } = require("../models");
 const withAuth = require("../utils/auth");
 // const animatePlane = require("../public/javascript/animatePlane");
+
 // get all posts for dashboard
 router.get("/", withAuth, (req, res) => {
   console.log(req.session);
@@ -29,9 +30,10 @@ router.get("/", withAuth, (req, res) => {
   })
     .then((dbVacayData) => {
       const vacays = dbVacayData.map((vacay) => vacay.get({ plain: true }));
-      //?how to do so that dashboard has multiple sections?
+
       res.render("dashboard", { vacays, loggedIn: true });
       // animatePlane;
+
     })
     .catch((err) => {
       console.log(err);
@@ -60,9 +62,9 @@ router.get("/edit/:id", withAuth, (req, res) => {
           "vacay_id",
           "start",
           "end",
-          // "display_date",
-          // "start_time",
-          // "end_time",
+          "display_date",
+          "start_time",
+          "end_time",
           "location",
           "agenda_notes",
         ],
@@ -122,17 +124,11 @@ router.get("/calendar/:id", withAuth, (req, res) => {
 //add route for rendering packing list page when the button is clicked
 router.get("/packing/:id", withAuth, (req, res) => {
   Vacay.findByPk(req.params.id, {
-    attributes: [
-      "id",
-      "title",
-    ],
+    attributes: ["id", "title"],
     include: [
       {
         model: PackingItem,
-        attributes: [
-          "id",
-          "packing_text",
-        ],
+        attributes: ["id", "packing_text"],
       },
     ],
   })
