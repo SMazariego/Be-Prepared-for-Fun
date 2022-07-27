@@ -30,6 +30,6 @@ async function newVacayFormHandler(event) {
 
 document
   .querySelector(".new-vacay-form")
-  .addEventListener("submit", newVacayFormHandler);
+  .addEventListener("click", newVacayFormHandler);
 
 
