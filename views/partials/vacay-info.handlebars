@@ -12,10 +12,10 @@
     {{destination}}
     | created by:
     {{user.username}}
-
+   {{! todo count not working  }}
     <div># of Events: {{vacay.agendaItems.length}}</div>
-    {{! todo ^ count not working  }}
-    {{! S: link to packing list page  }}
+ 
+    {{! link to packing list page  }}
     <a id={{id}} href="dashboard/packing/{{id}}" class="packingList">Packing
       List</a>
     <a href="/dashboard/edit/{{id}}" class="edit-link">Edit Vacation</a>
