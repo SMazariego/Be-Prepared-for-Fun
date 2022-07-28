@@ -1,25 +1,27 @@
 <article class="packing-list">
+    <div class="hero-pack">
+    <h2>
+      {{!-- i'm not certain vacay.title will work so might need to delete that and just say packing list  --}}
+      Packing List for {{vacay.title}}
+    </h2>
+    </div>
 
-</article><button class="cal-view nav-v-btn">Calendar</button>
+<button class="cal-view nav-v-btn">Calendar</button>
 <button class="edit-vacay nav-v-btn">Edit Vacation</button>
 
-
-  <h2>
-    {{!-- i'm not certain vacay.title will work so might need to delete that and just say packing list  --}}
-    Packing List for {{vacay.title}}
-  </h2>
-
-<form class="packing-item-form">
-  <div>Add New Item:</div>
-    <div>
-    <input name="packing-text" type="text" value="{{packing_text}}" />
+  <form class="packing-item-form card">
+    <div class="text-center card-title">
+      <h4>Add New Item:</h4>
     </div>
-    <button id="save-packing-btn" type="submit">Add item</button>
-</form>
+      <div>
+      <input name="packing-text" type="text" value="{{packing_text}}" />
+      </div>
+      <button id="save-packing-btn" type="submit">Add item</button>
+  </form>
 
 {{!-- check if there are any packing items for this vacation. if there isn't then say "Packing List Not Created Yet " --}}
 {{#if vacay.packingItems.length}}
-<section>
+<section class="listed-items">
   <h2>Packing List:</h2>
   {{!-- for each packing item go through and add a partial packing-item.handlebar line to the list  --}}
   <ul style="list-style-type:none">
