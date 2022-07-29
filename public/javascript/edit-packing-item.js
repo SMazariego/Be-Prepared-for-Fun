@@ -4,16 +4,17 @@ async function editPackingHandler(event) {
   event.preventDefault();
   //   get the id from the button so it tells the system which packing item to remove
   const id = event.target.id;
+  console.log(id);
   //pull in value from the input line for the packing item text
-  const packing_text = document.querySelector(
-    'input[name="packing-text"]'
+  const new_packing_text = document.querySelector(
+    `input[name="packing-text${id}"]`
   ).value;
   // if there is something in the input line above then get a response by await fetching the packingItems put method
-  if (packing_text) {
+  if (new_packing_text) {
     const response = await fetch(`/api/packingItems/${id}`, {
       method: "PUT",
       body: JSON.stringify({
-        packing_text,
+        packing_text: new_packing_text,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -27,6 +28,6 @@ async function editPackingHandler(event) {
     }
   }
 }
-document
-  .querySelector(".update-packing-btn")
-  .addEventListener("click", editPackingHandler);
+document.querySelectorAll(".update-packing-btn").forEach((btn) => {
+  btn.addEventListener("click", editPackingHandler);
+});

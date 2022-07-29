@@ -1,3 +1,5 @@
+<button id="cal-view" class="cal-view nav-v-btn">Calendar</button>
+<button class="edit-vacay nav-v-btn">Edit Vacation</button>
 <article class="packing-list">
     <div class="hero-pack">
     <h2>
@@ -5,15 +7,14 @@
     </h2>
     </div>
 
-<button class="cal-view nav-v-btn">Calendar</button>
-<button class="edit-vacay nav-v-btn">Edit Vacation</button>
 
-  <form class="packing-item-form card">
+
+  <form class="packing-item-form card justify-content-center">
     <div class="text-center card-title">
       <h4>Add New Item:</h4>
     </div>
       <div>
-      <input name="packing-text" type="text" value="{{packing_text}}" />
+      <input name="packing-textN" type="text" value="{{packing_text}}" />
       </div>
       <button id="save-packing-btn" type="submit">Add item</button>
   </form>
@@ -23,7 +24,7 @@
 <section class="listed-items">
   <h2>Packing List:</h2>
   {{!-- for each packing item go through and add a partial packing-item.handlebar line to the list  --}}
-  <ul style="list-style-type:none">
+  <ul id="packed-items" style="list-style-type:none">
     {{#each vacay.packingItems as | packingItem |}}
     <li>
       {{> packing-item packingItem}}

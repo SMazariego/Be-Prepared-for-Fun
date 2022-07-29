@@ -1,18 +1,18 @@
 <section class="hero">
   <div class="hero-cta">
-    <div class="flex-row">
-      <h2>Not All those Who Wander Are Lost</h2>
-      <h3>J.R.R Tolkien </h3>
-      <p> Your Next Adventure Begins Here!</p>
+    <div class="row justify-content-center">
+      <h2 class="col-sm-12 col-md-8 text-center">Not All those Who Wander Are Lost</h2>
+      <h3 class="col-sm-12 col-md-8 text-center">J.R.R Tolkien </h3>
+      <p class="col-sm-12 col-md-8 text-center"> Your Next Adventure Begins Here!</p>
     </div>
   </div>
 </section>
 
-<section class="vacay-form">
+<section class="vacay-form row justify-content-center">
   
-  <h2 class="text-center">Create New Vacation</h2>
+  <h2 class="col-sm-12 col-md-8 text-center">Create New Vacation</h2>
 
-  <form class="new-vacay-form">
+  <form class="new-vacay-form col-sm-12 col-md-8">
     <div class="form-floating mb-3"
     >
       <label class="form-label" for="vacay-title">Title</label>
@@ -34,8 +34,8 @@
 </section>
 
 {{#if vacays.length}}
-<section class="vacay-form">
-  <h2 class="text-center">Your Vacations</h2>
+<section class="vacay-form row justify-content-center">
+  <h2 class="text-center col-12">Your Vacations</h2>
   <div id="yourVacations">
     <ol>
       {{#each vacays as |vacay|}}

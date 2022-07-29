@@ -1,9 +1,7 @@
-//todo figure out how to make work for calendar style
 async function deleteAgendaFormHandler(event) {
   event.preventDefault();
   const id = event.target.id;
 
-  //todo figure out how to target id of agenda-item selected
   console.log(id);
   const response = await fetch(`/api/agendas/${id}`, {
     method: "DELETE",
@@ -16,6 +14,6 @@ async function deleteAgendaFormHandler(event) {
   }
 }
 
-document
-  .querySelector(".delete-agenda-btn")
-  .addEventListener("click", deleteAgendaFormHandler);
+document.querySelectorAll(".delete-agenda-btn").forEach((btn) => {
+  btn.addEventListener("click", deleteAgendaFormHandler);
+});

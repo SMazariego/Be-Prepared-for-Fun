@@ -4,7 +4,7 @@ async function deleteVacayFormHandler(event) {
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  const response = await fetch(`/api/vacacys/${id}`, {
+  const response = await fetch(`/api/vacays/${id}`, {
     method: "DELETE",
   });
 
