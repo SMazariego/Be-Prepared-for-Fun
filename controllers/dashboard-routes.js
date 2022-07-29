@@ -21,19 +21,26 @@ router.get("/", withAuth, (req, res) => {
       "destination",
       "created_at",
     ],
+
     include: [
       {
         model: User,
         attributes: ["username"],
       },
+      {
+        model: AgendaItem,
+        attributes: ["id"],
+      },
     ],
   })
     .then((dbVacayData) => {
       const vacays = dbVacayData.map((vacay) => vacay.get({ plain: true }));
-
+      // console.log("agendaItems", vacay.agendaItems.length);
+      // console.log("AgendaItems", vacay.AgendaItems.length);
+      console.log("testing");
+      console.log(vacays);
       res.render("dashboard", { vacays, loggedIn: true });
       // animatePlane;
-
     })
     .catch((err) => {
       console.log(err);

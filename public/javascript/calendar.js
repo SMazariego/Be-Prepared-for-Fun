@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return response.json();
     })
     .then(async (vacay) => {
-      console.log(vacay);
+      // console.log(vacay);
       const start_day = await vacay.start_date;
       const response = await fetch(`/api/calendars/${id}`, {
         method: "GET",

@@ -153,7 +153,7 @@ html {
   margin: 0;
   font-family: sans-serif;
   color: #333;
-  background-image: linear-gradient(to bottom right, #DEF5F7, #75AEB5, #2F8CA8);
+  background-image: linear-gradient(to bottom right, #def5f7, #75aeb5, #2f8ca8);
 }
 
 a {
@@ -210,7 +210,6 @@ main {
   padding: 2% 4%;
 }
 
-
 /* HEADER & FOOTER STYLING */
 header {
   border-bottom: 1px solid #ccc;
@@ -234,8 +233,8 @@ footer {
   font-size: 110%;
 }
 .quote-box {
-  background-color: #EDFAFE;
-  color: #10495A;
+  background-color: #edfafe;
+  color: #10495a;
   padding: 20px 35px;
   margin: 20px 20px;
   border-radius: 15px;
@@ -254,8 +253,8 @@ footer {
 .wrapper a:hover {
   border-radius: 3px;
   padding: 10px 10px;
-  background: #EDFAFE;
-  color: #10495A;
+  background: #edfafe;
+  color: #10495a;
   text-shadow: none;
   text-decoration: none;
 }
@@ -265,18 +264,18 @@ footer {
 .hero {
   border-radius: 15px;
   background-image: url(../img/vacay-hero1.jpeg);
-    background-size: cover;
-    background-position: 45% 55%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    background-attachment: scroll;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  background-position: 45% 55%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background-attachment: scroll;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
 .hero-cta {
-  width: 35%;
+  /* width: 35%; */
   text-align: center;
   margin: 10%;
   color: #fff;
@@ -306,26 +305,26 @@ form label {
 }
 
 .vacay-form {
-  margin: 100px;
+  /* margin: 100px; */
   padding: 20px 20px;
 }
 
-.new-vacay-form{
-  border: 3px solid #10495A;
+.new-vacay-form {
+  border: 3px solid #10495a;
   padding: 20px;
   border-radius: 15px;
   font-size: 15px;
 }
 
-.new-vacay-form input{
+.new-vacay-form input {
   width: 100%;
 }
 .new-vacay-form input:hover {
-  background-color: #EDFAFE;
+  background-color: #edfafe;
 }
 
 .vacay-form h2 {
-  color: #10495A;
+  color: #10495a;
   font-size: 45px;
   margin: 30px 20px;
   padding: 30px 20px;
@@ -338,7 +337,7 @@ form label {
 }
 
 .vacay-form button:hover {
-  background-color: #EDFAFE;
+  background-color: #edfafe;
   font-size: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
@@ -351,7 +350,7 @@ form label {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #10495A;
+  color: #10495a;
   font-size: 100%;
   font-weight: bold;
   transition: color 0.1s;
@@ -359,8 +358,8 @@ form label {
 }
 
 .btn-no-style:hover {
-  background: #EDFAFE;
-  color: #1A401F;
+  background: #edfafe;
+  color: #1a401f;
   padding: 10px 10px;
 }
 

@@ -1,9 +1,11 @@
 {{!-- might combine with single vacay  --}}
-<button class="cal-view nav-v-btn">Calendar</button>
+<div>
+<button id="cal-view" class="cal-view nav-v-btn">Calendar</button>
 <button class="packing-list nav-v-btn">Packing List</button>
+</div>
 <article>
 
-  <h2 class="animate__animated animate__bounce">
+  <h2 class="vacay-edit-sec animate__animated animate__bounce">
     {{vacay.title}}
   </h2>
   <form class="edit-vacay-form">
@@ -21,7 +23,7 @@
 </article>
 
 <form class="agenda-form">
-  <div>Add New Event:</div>
+  <h3>Add New Event:</h3>
     <div>
 
       <input name="agenda-titleN" type="text"
@@ -51,8 +53,8 @@
 
 {{#if vacay.agendaItems.length}}
 <section id="agenda-edit-sec">
-  <h2>Agenda</h2>
-  <div>
+  <h2>Agenda:</h2>
+  <div class="agenda-list">
     {{#each vacay.agendaItems as | agendaItem |}}
     <div>
       {{> agenda-item-info agendaItem}}

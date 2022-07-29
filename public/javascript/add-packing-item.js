@@ -5,7 +5,7 @@ async function packingFormHandler(event) {
   event.preventDefault();
   //pull in value from the input line for the packing item text
   const packing_text = document.querySelector(
-    'input[name="packing-text"]'
+    'input[name="packing-textN"]'
   ).value;
   const vacay_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
@@ -35,3 +35,25 @@ async function packingFormHandler(event) {
 document
   .querySelector(".packing-item-form")
   .addEventListener("submit", packingFormHandler);
+
+function editpagebtn(event) {
+  event.preventDefault();
+  const id = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
+  ];
+
+  window.location.replace(`/dashboard/edit/${id}`);
+}
+
+document.querySelector(".edit-vacay").addEventListener("click", editpagebtn);
+
+function calpagebtn(event) {
+  event.preventDefault();
+  const id = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
+  ];
+
+  window.location.replace(`/dashboard/calendar/${id}`);
+}
+
+document.querySelector("#cal-view").addEventListener("click", calpagebtn);

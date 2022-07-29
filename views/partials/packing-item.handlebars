@@ -1,13 +1,11 @@
 {{! Display for a single packing list item  }}
 
-<form
-  class="animate__animated animate__slideInLeft packing-item-form"
->
+<form class="animate__animated animate__slideInLeft each-packing-item-form">
   <div>
     {{! figure out checkbox part  }}
-    <input name="packing-text" type="text" value="{{packing_text}}" />
+    <input name="packing-text{{id}}" type="text" value="{{packing_text}}" />
 
-  <button id={{id}} class="update-packing-btn" type="submit">↬</button>
-  <button type="button" id={{id}} class="delete-packing-btn">Ø</button>
-    </div>
+    <button id="{{id}}" class="update-packing-btn" type="button">↬</button>
+    <button type="button" id="{{id}}" class="delete-packing-btn">Ø</button>
+  </div>
 </form>
