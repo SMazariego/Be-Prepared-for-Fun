@@ -11,3 +11,6 @@ Screenshots:
 
 Link to Deployed Application:
 https://guarded-stream-10933.herokuapp.com/
+
+Link to GitHub Repo:
+https://github.com/CharissaHollister/Be-Prepared-for-Fun
